@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="hi-Latn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== SEO META ===== -->
+  <title>Zameen Naplo | Indian Land Area Converter &amp; Regional Unit Calculator</title>
+  <meta name="description" content="Zameen Naplo ek free Indian land area converter hai. UP, Bihar, Punjab, Maharashtra, West Bengal ke regional units jaise Bigha, Biswa, Katha, Marla, Kanal, Guntha, Gaj ko Sq Ft, Acre aur Hectare mein convert karein." />
+  <meta name="keywords" content="bigha to gaj, up me ek bigha kitna hota hai, bihar bigha katha dhur, punjab marla kanal, guntha to acre, land area converter india, gaj to square feet, hectare to bigha, zameennaplo" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Zameen Naplo" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Zameen Naplo | Indian Land Area Converter &amp; Regional Unit Calculator" />
+  <meta property="og:description" content="Bigha, Gaj, Marla, Katha, Guntha ko Sq Ft, Acre, Hectare mein convert karein — state-wise aur instant." />
+  <meta property="og:url" content="https://zameennaplo.in/" />
+  <meta property="og:locale" content="en_IN" />
+  
+  <!-- ===== CANONICAL LINK ===== -->
+  <link rel="canonical" href="https://zameennaplo.in/" />
+
+  <!-- ===== FAQ STRUCTURED DATA (100% Matched with Visible UI) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Kya har state mein Bigha ki value same hoti hai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nahi. Bigha India mein standardized nahi hai. UP ka Pucca Bigha lagbhag 27,225 sq ft hota hai, jabki West Bengal ka Bigha lagbhag 14,400 sq ft hota hai. Kai baar ek hi state ke alag districts mein bhi value badal jaati hai, isliye local tehsil ya registry office se confirm karna zaroori hai."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "1 Bigha mein kitne Gaj hote hain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yeh state par depend karta hai. UP ke Pucca Bigha mein lagbhag 3,025 Gaj hote hain, Bihar ke Bigha mein bhi lagbhag 3,025 Gaj, jabki West Bengal ke Bigha mein lagbhag 1,600 Gaj hote hain."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Pucca aur Kaccha Bigha mein kya farak hai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "UP aur kuch northern areas mein do tarah ke Bigha chalte hain. Pucca Bigha bada hota hai (lagbhag 27,225 sq ft) aur Kaccha Bigha uska kareeb ek-tihai (lagbhag 9,075 sq ft). Purane land records aur gaon ke hisab mein dono alag use hote hain."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "1 Acre mein kitne Bigha hote hain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1 Acre = 43,560 sq ft hota hai. UP ke Pucca Bigha hisab se 1 Acre mein lagbhag 1.6 Bigha aate hain, jabki West Bengal mein 1 Acre mein lagbhag 3.02 Bigha aate hain."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Maharashtra mein Guntha kya hota hai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Maharashtra aur Gujarat mein 1 Guntha = 1,089 sq ft hota hai. 40 Guntha milkar 1 Acre (43,560 sq ft) banta hai."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Punjab aur Haryana mein Marla aur Kanal kya hote hain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Punjab aur Haryana mein 1 Marla = 272.25 sq ft aur 1 Kanal = 20 Marla = 5,445 sq ft hota hai. 8 Kanal milkar 1 Acre banta hai."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    input[type=number] { -moz-appearance: textfield; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-answer.open { max-height: 400px; }
+    .faq-icon { transition: transform 0.3s ease; }
+    .faq-icon.open { transform: rotate(45deg); }
+    @media (prefers-reduced-motion: reduce) {
+      .faq-answer, .faq-icon { transition: none; }
+    }
+    :focus-visible { outline: 2px solid #4f46e5; outline-offset: 2px; }
+  </style>
+</head>
+
+<body class="bg-slate-100 text-slate-800 antialiased">
+
+  <!-- ===== TOP AD BANNER PLACEHOLDER ===== -->
+  <div class="w-full bg-slate-100 pt-4">
+    <div class="max-w-2xl mx-auto px-4">
+      <div class="w-full h-[60px] sm:h-[90px] rounded-lg border border-dashed border-slate-300 bg-white/60 flex items-center justify-center text-xs text-slate-400 select-none">
+        <!-- AdSense Top Banner — apna ad code yahan paste karein -->
+        Advertisement
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="max-w-2xl mx-auto px-4 pt-6 pb-2 text-center">
+    <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
+      Zameen Naplo
+    </h1>
+    <p class="mt-1 text-sm sm:text-base text-slate-500 font-medium">
+      Bigha, Gaj, Marla, Katha, Guntha &amp; Acre — State-wise Instant Calculator
+    </p>
+  </header>
+
+  <!-- ===== CALCULATOR CARD ===== -->
+  <main class="max-w-2xl mx-auto px-4 pb-12">
+    <section class="bg-white rounded-2xl shadow-xl shadow-slate-200/60 ring-1 ring-slate-100 p-5 sm:p-7 mt-4">
+
+      <!-- State selector with dynamic trust badge -->
+      <div class="flex items-center justify-between mb-2">
+        <label for="stateSelect" class="text-sm font-semibold text-slate-700">
+          State chunein
+        </label>
+        <span id="stateBadge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100 uppercase tracking-wider">
+          UP Active
+        </span>
+      </div>
+      <select id="stateSelect"
+        class="w-full h-14 px-4 rounded-xl bg-slate-50 border border-slate-200 text-base font-medium text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition">
+      </select>
+
+      <!-- Value input -->
+      <label for="valueInput" class="block text-sm font-semibold text-slate-700 mt-5 mb-2">
+        Value daalein
+      </label>
+      <input id="valueInput" type="number" inputmode="decimal" min="0" step="any" value="1"
+        placeholder="e.g. 1"
+        class="w-full h-14 px-4 rounded-xl bg-slate-50 border border-slate-200 text-lg font-semibold text-slate-900 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" />
+
+      <!-- From / To -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
+        <div>
+          <label for="fromSelect" class="block text-sm font-semibold text-slate-700 mb-2">Convert From</label>
+          <select id="fromSelect"
+            class="w-full h-14 px-4 rounded-xl bg-slate-50 border border-slate-200 text-base font-medium text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition"></select>
+        </div>
+        <div>
+          <label for="toSelect" class="block text-sm font-semibold text-slate-700 mb-2">Convert To</label>
+          <select id="toSelect"
+            class="w-full h-14 px-4 rounded-xl bg-slate-50 border border-slate-200 text-base font-medium text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition"></select>
+        </div>
+      </div>
+
+      <!-- Swap + Calculate -->
+      <div class="flex items-center gap-3 mt-5">
+        <button id="swapBtn" type="button" aria-label="Units swap karein"
+          class="h-14 w-14 shrink-0 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition active:scale-95">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+          </svg>
+        </button>
+        <button id="calcBtn" type="button"
+          class="h-14 flex-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-base font-bold tracking-wide shadow-lg shadow-indigo-600/30 transition active:scale-[0.99]">
+          Calculate Now
+        </button>
+      </div>
+
+      <!-- ===== RESULT BOX ===== -->
+      <div id="resultBox" class="mt-6 rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-700 p-6 text-center text-white shadow-lg shadow-indigo-600/30">
+        <p id="resultLabel" class="text-sm font-medium text-indigo-200">Result</p>
+        <p id="resultValue" class="mt-1 text-3xl sm:text-4xl font-extrabold tracking-tight break-words">—</p>
+        <p id="resultUnit" class="mt-1 text-base font-semibold text-indigo-100"></p>
+        <p id="resultEquation" class="mt-3 text-xs text-indigo-200/90"></p>
+        
+        <!-- WhatsApp Share Button Loop (Viral Element) -->
+        <button id="whatsappBtn" type="button" class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold rounded-lg transition shadow-md active:scale-95">
+          <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.79-3.514c1.6.95 3.515 1.453 5.501 1.454 5.551 0 10.068-4.447 10.071-9.919.002-2.65-1.03-5.14-2.903-7.016C17.545 3.129 15.06 2.1 12.42 2.1 6.864 2.1 2.346 6.548 2.343 12.02c-.001 1.905.498 3.766 1.446 5.394l-.946 3.454 3.554-.932z"/>
+          </svg>
+          WhatsApp Par Share Karein
+        </button>
+      </div>
+
+      <p class="mt-4 text-[11px] leading-relaxed text-slate-400 text-center">
+        Note: Regional units (Bigha, Biswa, Katha, etc.) area ki value district aur tehsil ke hisaab se thodi alag ho sakti hai. Yeh standard reference values hain — final sauda/registry ke liye apne local land record office se confirm karein.
+      </p>
+    </section>
+
+    <!-- ===== AD CONTAINER BELOW RESULT ===== -->
+    <div class="mt-6">
+      <div class="w-full min-h-[90px] rounded-lg border border-dashed border-slate-300 bg-white/60 flex items-center justify-center text-xs text-slate-400 select-none">
+        <!-- AdSense Responsive Display — apna ad code yahan paste karein -->
+        Advertisement
+      </div>
+    </div>
+
+    <!-- ===== SEO CONTENT SECTION ===== -->
+    <article class="mt-10 bg-white rounded-2xl shadow-sm ring-1 ring-slate-100 p-6 sm:p-8 prose-slate">
+      <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Indian Land Area Conversion Rules Kya Hain?</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-slate-600">
+        India mein zameen napne ka koi single national system nahi chalta. Sarkari kaagzaat mein Square Feet, Square Yard (Gaj), Acre aur Hectare jaise standard units chalte hain, lekin gaon aur purane records mein aaj bhi <strong>Bigha, Biswa, Katha, Dhur, Marla, Kanal aur Guntha</strong> jaise regional units use hote hain. Sabse badi baat — in regional units ki value har state mein alag hoti hai. Isliye sahi conversion ke liye pehle apna state chunna zaroori hai.
+      </p>
+      <p class="mt-3 text-[15px] leading-relaxed text-slate-600">
+        Yeh tool sabhi conversions ek base unit (Square Feet) ke through karta hai, taaki har unit ka aapas mein hisaab accurate rahe. Neeche kuch popular states ke rules diye gaye hain.
+      </p>
+
+      <h3 class="text-lg font-bold text-slate-900 mt-7">Uttar Pradesh (UP) mein Bigha aur Biswa ka Hisab</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">
+        UP mein Bigha do tarah ka hota hai — <strong>Pucca</strong> aur <strong>Kaccha</strong>. Aam taur par:
+      </p>
+      <ul class="mt-2 space-y-1.5 text-[15px] text-slate-600 list-disc pl-5">
+        <li>1 Bigha (Pucca) = lagbhag <strong>27,225 sq ft</strong> = 3,025 Gaj</li>
+        <li>1 Bigha (Kaccha) = lagbhag <strong>9,075 sq ft</strong> (Pucca ka kareeb ek-tihai)</li>
+        <li>1 Bigha = 20 Biswa, yaani 1 Biswa (Pucca) = lagbhag 1,361 sq ft</li>
+      </ul>
+
+      <h3 class="text-lg font-bold text-slate-900 mt-7">Bihar mein Bigha, Katha aur Dhur ki Value</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">
+        Bihar mein zameen Bigha, Katha aur Dhur mein naapi jaati hai. Standard reference:
+      </p>
+      <ul class="mt-2 space-y-1.5 text-[15px] text-slate-600 list-disc pl-5">
+        <li>1 Bigha = 20 Katha = lagbhag <strong>27,225 sq ft</strong></li>
+        <li>1 Katha = 20 Dhur = lagbhag <strong>1,361 sq ft</strong></li>
+        <li>1 Dhur = lagbhag <strong>68 sq ft</strong></li>
+      </ul>
+
+      <h3 class="text-lg font-bold text-slate-900 mt-7">Punjab aur Haryana mein Marla aur Kanal kaise nikalte hain?</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">
+        Punjab aur Haryana mein Marla aur Kanal sabse common units hain, aur inka system kaafi standard hai:
+      </p>
+      <ul class="mt-2 space-y-1.5 text-[15px] text-slate-600 list-disc pl-5">
+        <li>1 Marla = <strong>272.25 sq ft</strong></li>
+        <li>1 Kanal = 20 Marla = <strong>5,445 sq ft</strong></li>
+        <li>8 Kanal = 1 Acre (43,560 sq ft)</li>
+      </ul>
+
+      <!-- ===== FAQ ACCORDION ===== -->
+      <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-10">Frequently Asked Questions</h2>
+      <div id="faqList" class="mt-4 divide-y divide-slate-200 border-t border-slate-200">
+
+        <div class="faq-item">
+          <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
+            <span class="text-[15px] font-semibold text-slate-800">Kya har state mein Bigha ki value same hoti hai?</span>
+            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">Nahi. Bigha standardized nahi hai. UP ka Pucca Bigha ~27,225 sq ft hota hai, jabki West Bengal ka Bigha ~14,400 sq ft. Ek hi state ke alag districts mein bhi value badal sakti hai, isliye local tehsil se confirm karein.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
+            <span class="text-[15px] font-semibold text-slate-800">1 Bigha mein kitne Gaj hote hain?</span>
+            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">State par depend karta hai. UP Pucca Bigha = ~3,025 Gaj, Bihar Bigha = ~3,025 Gaj, jabki West Bengal Bigha = ~1,600 Gaj. Sahi value ke liye upar tool mein apna state chunein.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
+            <span class="text-[15px] font-semibold text-slate-800">Pucca aur Kaccha Bigha mein kya farak hai?</span>
+            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">UP aur kuch northern areas mein Pucca Bigha bada hota hai (~27,225 sq ft) aur Kaccha Bigha uska kareeb ek-tihai (~9,075 sq ft). Purane land records mein dono alag use hote hain.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
+            <span class="text-[15px] font-semibold text-slate-800">1 Acre mein kitne Bigha hote hain?</span>
+            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">1 Acre = 43,560 sq ft. UP Pucca Bigha hisab se ~1.6 Bigha, aur West Bengal mein ~3.02 Bigha bante hain.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
+            <span class="text-[15px] font-semibold text-slate-800">Maharashtra mein Guntha kya hota hai?</span>
+            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">Maharashtra aur Gujarat mein 1 Guntha = 1,089 sq ft hota hai. 40 Guntha milkar 1 Acre (43,560 sq ft) banta hai.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
+            <span class="text-[15px] font-semibold text-slate-800">Punjab aur Haryana mein Marla aur Kanal kya hote hain?</span>
+            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">Punjab aur Haryana mein 1 Marla = 272.25 sq ft aur 1 Kanal = 20 Marla = 5,445 sq ft hota hai. 8 Kanal milkar 1 Acre banta hai.</p></div>
+        </div>
+
+      </div>
+    </article>
+
+    <footer class="mt-8 text-center text-xs text-slate-400">
+      <p>Yeh ek free reference tool hai. Values standard regional conversions par based hain. Legal/registry purpose ke liye official land records dekhein.</p>
+    </footer>
+  </main>
+
+  <!-- ===== CONVERSION ENGINE (Vanilla JS) ===== -->
+  <script>
+    // Har unit ki value Square Feet mein (base unit = sq ft).
+    const UNITS = {
+      sqft:            { label: "Square Feet (Sq Ft)", sqft: 1 },
+      gaj:             { label: "Gaj / Square Yard",    sqft: 9 },
+      sqm:             { label: "Square Meter",         sqft: 10.7639 },
+      acre:            { label: "Acre",                 sqft: 43560 },
+      hectare:         { label: "Hectare",              sqft: 107639 },
+      // Uttar Pradesh
+      up_bigha_pucca:  { label: "Bigha (Pucca)",        sqft: 27225 },
+      up_bigha_kaccha: { label: "Bigha (Kaccha)",       sqft: 9075 },
+      up_biswa_pucca:  { label: "Biswa (Pucca)",        sqft: 1361.25 },
+      up_biswa_kaccha: { label: "Biswa (Kaccha)",       sqft: 453.75 },
+      // Bihar
+      bihar_bigha:     { label: "Bigha",                 sqft: 27225 },
+      bihar_katha:     { label: "Katha",                 sqft: 1361.25 },
+      bihar_dhur:      { label: "Dhur",                  sqft: 68.0625 },
+      // Punjab / Haryana
+      pb_marla:        { label: "Marla",                 sqft: 272.25 },
+      pb_kanal:        { label: "Kanal",                 sqft: 5445 },
+      pb_bigha:        { label: "Bigha",                 sqft: 9075 },
+      // Maharashtra / Gujarat
+      mh_guntha:       { label: "Guntha",               sqft: 1089 },
+      mh_bigha:        { label: "Bigha",                 sqft: 17424 },
+      // West Bengal
+      wb_bigha:        { label: "Bigha",                 sqft: 14400 },
+      wb_katha:        { label: "Katha",                 sqft: 720 },
+      wb_satak:        { label: "Satak / Decimal",      sqft: 435.6 }
+    };
+
+    // Standard units har state mein dikhenge + regional units state-specific.
+    const STANDARD = ["sqft", "gaj", "sqm", "acre", "hectare"];
+
+    const STATES = {
+      national:    { name: "National / Standard",   units: [...STANDARD], shortName: "Standard" },
+      up:          { name: "Uttar Pradesh",         units: [...STANDARD, "up_bigha_pucca", "up_bigha_kaccha", "up_biswa_pucca", "up_biswa_kaccha"], defaultFrom: "up_bigha_pucca", shortName: "UP" },
+      bihar:       { name: "Bihar",                 units: [...STANDARD, "bihar_bigha", "bihar_katha", "bihar_dhur"], defaultFrom: "bihar_bigha", shortName: "Bihar" },
+      punjab:      { name: "Punjab / Haryana",      units: [...STANDARD, "pb_kanal", "pb_marla", "pb_bigha"], defaultFrom: "pb_kanal", shortName: "PB / HR" },
+      maharashtra: { name: "Maharashtra / Gujarat", units: [...STANDARD, "mh_guntha", "mh_bigha"], defaultFrom: "mh_guntha", shortName: "MH / GJ" },
+      wb:          { name: "West Bengal",           units: [...STANDARD, "wb_bigha", "wb_katha", "wb_satak"], defaultFrom: "wb_bigha", shortName: "WB" }
+    };
+
+    // Element references
+    const stateSelect    = document.getElementById("stateSelect");
+    const stateBadge     = document.getElementById("stateBadge");
+    const valueInput     = document.getElementById("valueInput");
+    const fromSelect     = document.getElementById("fromSelect");
+    const toSelect       = document.getElementById("toSelect");
+    const calcBtn        = document.getElementById("calcBtn");
+    const swapBtn        = document.getElementById("swapBtn");
+    const resultValue    = document.getElementById("resultValue");
+    const resultUnit     = document.getElementById("resultUnit");
+    const resultEquation = document.getElementById("resultEquation");
+    const whatsappBtn    = document.getElementById("whatsappBtn");
+
+    // Number ko India-style readable format mein dikhana
+    function formatNumber(n) {
+      if (!isFinite(n)) return "—";
+      if (n === 0) return "0";
+      const abs = Math.abs(n);
+      let decimals;
+      if (abs >= 1000) decimals = 2;
+      else if (abs >= 1) decimals = 3;
+      else if (abs >= 0.01) decimals = 4;
+      else decimals = 6;
+      
+      let rounded = Number(n.toFixed(decimals));
+      return rounded.toLocaleString("en-IN", { maximumFractionDigits: decimals });
+    }
+
+    // State badalne par dropdowns rebuild karein
+    function populateStates() {
+      Object.entries(STATES).forEach(([key, st]) => {
+        const opt = document.createElement("option");
+        opt.value = key;
+        opt.textContent = st.name;
+        stateSelect.appendChild(opt);
+      });
+    }
+
+    function buildUnitOptions(selectEl, unitKeys, selectedKey) {
+      selectEl.innerHTML = "";
+      unitKeys.forEach(key => {
+        const opt = document.createElement("option");
+        opt.value = key;
+        opt.textContent = UNITS[key].label;
+        if (key === selectedKey) opt.selected = true;
+        selectEl.appendChild(opt);
+      });
+    }
+
+    function refreshUnits() {
+      const st = STATES[stateSelect.value];
+      stateBadge.textContent = st.shortName + " Active";
+      const from = st.defaultFrom || "acre";
+      const to = "gaj";
+      buildUnitOptions(fromSelect, st.units, from);
+      buildUnitOptions(toSelect, st.units, to);
+      calculate();
+    }
+
+    function calculate() {
+      const raw = parseFloat(valueInput.value);
+      const fromKey = fromSelect.value;
+      const toKey = toSelect.value;
+
+      if (isNaN(raw) || raw < 0 || !UNITS[fromKey] || !UNITS[toKey]) {
+        resultValue.textContent = "—";
+        resultUnit.textContent = "";
+        resultEquation.textContent = "Value daalein";
+        return;
+      }
+
+      const inSqFt = raw * UNITS[fromKey].sqft;
+      const result = inSqFt / UNITS[toKey].sqft;
+
+      resultValue.textContent = formatNumber(result);
+      resultUnit.textContent = UNITS[toKey].label;
+      resultEquation.textContent =
+        formatNumber(raw) + " " + UNITS[fromKey].label + " = " +
+        formatNumber(result) + " " + UNITS[toKey].label;
+    }
+
+    function swapUnits() {
+      const f = fromSelect.value;
+      fromSelect.value = toSelect.value;
+      toSelect.value = f;
+      calculate();
+    }
+
+    // WhatsApp Share Function with Brand Name
+    function shareOnWhatsApp() {
+      const eqText = resultEquation.textContent;
+      if (eqText && eqText !== "Value daalein") {
+        const text = encodeURIComponent(`*Land Calculation Result:* \n${eqText}\n\nApni zameen ka hisab check karein: https://zameennaplo.in`);
+        window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+      }
+    }
+
+    // Event listeners — real-time calculation
+    stateSelect.addEventListener("change", refreshUnits);
+    valueInput.addEventListener("input", calculate);
+    fromSelect.addEventListener("change", calculate);
+    toSelect.addEventListener("change", calculate);
+    calcBtn.addEventListener("click", calculate);
+    swapBtn.addEventListener("click", swapUnits);
+    whatsappBtn.addEventListener("click", shareOnWhatsApp);
+
+    // FAQ accordion functionality
+    document.querySelectorAll(".faq-q").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector(".faq-icon");
+        const isOpen = answer.classList.contains("open");
+        answer.classList.toggle("open", !isOpen);
+        icon.classList.toggle("open", !isOpen);
+        btn.setAttribute("aria-expanded", String(!isOpen));
+      });
+    });
+
+    // Init
+    populateStates();
+    stateSelect.value = "up";   // default: most-searched state
+    refreshUnits();
+  </script>
+</body>
+</html>
