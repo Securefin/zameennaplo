@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F6G82QYJ2M');
+  // gtag.js page load ke baad load hota hai taaki page jaldi dikhe (first interaction ya 3.5s, jo pehle ho)
+  (function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-F6G82QYJ2M';document.head.appendChild(s);}
+  ['scroll','click','touchstart','keydown'].forEach(function(e){window.addEventListener(e,load,{once:true,passive:true});});
+  window.addEventListener('load',function(){setTimeout(load,3500);});})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<title>ज़मीन नापो कैलकुलेटर: लंबाई-चौड़ाई से बीघा, बिस्वा, गज निकालें | टेढ़े खेत का क्षेत्रफल</title>
+<meta name="description" content="खेत या प्लॉट की लंबाई-चौड़ाई डालें और बीघा-बिस्वा-बिस्वांसी, कट्ठा-धुर, कनाल-मरला, गज व एकड़ में ज़मीन जानें। टेढ़े खेत (4 भुजा), त्रिकोण, क़ीमत और बँटवारा भी।">
+<link rel="canonical" href="https://zameennaplo.in/zameen-napo/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="ज़मीन नापो — लंबाई-चौड़ाई से बीघा, बिस्वा, गज निकालें">
+<meta property="og:description" content="खेत या प्लॉट की लंबाई-चौड़ाई डालें और बीघा-बिस्वा-बिस्वांसी, कट्ठा-धुर, कनाल-मरला, गज व एकड़ में ज़मीन जानें। टेढ़े खेत (4 भुजा), त्रिकोण, क़ीमत और बँटवारा भी।">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zameennaplo.in/zameen-napo/">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:site_name" content="Zameen Naplo">
+<meta property="og:image" content="https://zameennaplo.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans','Noto Sans Devanagari','Nirmala UI',Arial,sans-serif;background:#f1f5f9;color:#1e293b;line-height:1.6}
+a{color:#4f46e5}
+header.site{background:#fff;border-bottom:1px solid #e2e8f0}
+header.site .wrap{max-width:42rem;margin:0 auto;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{text-decoration:none}
+header.site .brand{font-size:1.25rem;font-weight:800;color:#0f172a}
+header.site .home-link{font-size:.85rem;color:#4f46e5;text-decoration:underline}
+.container{max-width:42rem;margin:0 auto;padding:20px 16px}
+.crumbs{font-size:.85rem;color:#475569;margin-bottom:14px}
+h1{font-size:1.6rem;line-height:1.3;margin:0 0 6px;font-weight:800;color:#0f172a}
+h2{font-size:1.25rem;margin:26px 0 10px;font-weight:700;color:#0f172a}
+.quick{background:#eef2ff;border:1px solid #c7d2fe;border-radius:12px;padding:14px 16px;margin-top:14px}
+.quick .label{font-weight:700;color:#3730a3;margin:0 0 4px}
+.quick p{margin:0}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px;margin-top:20px;box-shadow:0 10px 25px -12px rgba(100,116,139,.25)}
+.card h2{margin-top:0}
+label{display:block;font-size:.85rem;font-weight:600;color:#475569;margin-bottom:4px}
+select,input[type=number]{width:100%;border:1px solid #cbd5e1;border-radius:10px;padding:10px;font-size:1.05rem;background:#fff;color:#1e293b}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.field{margin-top:14px}
+.swap{background:none;border:none;color:#4f46e5;text-decoration:underline;font-size:.9rem;padding:0;margin-top:12px;cursor:pointer}
+.result{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:14px;margin-top:14px}
+.result .rlabel{font-size:.85rem;color:#64748b;margin:0}
+.result .rmain{font-size:1.5rem;font-weight:800;color:#4338ca;margin:4px 0 0}
+.result .rextra{font-size:.9rem;color:#475569;margin:8px 0 0}
+.btn{display:block;text-align:center;background:#047857;color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:11px;margin-top:14px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e2e8f0;font-size:.95rem}
+th,td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left}
+thead{background:#f8fafc}
+tr:last-child td{border-bottom:none}
+.tablewrap{overflow-x:auto;margin-top:10px;border-radius:12px;border:1px solid #e2e8f0}
+.tablewrap table{border:none}
+details{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 16px;margin-top:10px}
+summary{font-weight:600;cursor:pointer;color:#0f172a}
+details p{color:#475569;margin:10px 0 0}
+ul.related{padding-left:20px;margin-top:10px}
+ul.related li{margin-top:6px}
+footer.site{border-top:1px solid #e2e8f0;background:#fff;margin-top:36px}
+footer.site .wrap{max-width:42rem;margin:0 auto;padding:18px 16px;font-size:.85rem;color:#64748b;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+:focus-visible{outline:2px solid #4f46e5;outline-offset:2px}
+footer.site nav{margin-top:12px;line-height:1.9}footer.site nav a{color:#4f46e5;text-decoration:none;white-space:nowrap}footer.site nav a:hover{text-decoration:underline}footer.site .legal{margin-top:10px}
+body{line-height:1.75}h3{font-size:1.05rem;margin:18px 0 4px;font-weight:700;color:#0f172a}.langswitch{display:inline-block;margin-top:10px;font-size:.9rem;font-weight:600}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "ज़मीन नापो कैलकुलेटर",
+ "url": "https://zameennaplo.in/zameen-napo/",
+ "applicationCategory": "UtilitiesApplication",
+ "operatingSystem": "Any",
+ "inLanguage": "hi",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "INR"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "लंबाई-चौड़ाई से बीघा कैसे निकालें?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "लंबाई × चौड़ाई (फुट में) से वर्ग फुट निकालें, फिर UP पक्के बीघा के लिए 27,225 से भाग दें। जैसे 165 × 165 फुट = 27,225 वर्ग फुट = 1 बीघा। ऊपर का कैलकुलेटर यह अपने आप बीघा-बिस्वा-बिस्वांसी में बता देता है।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "टेढ़े खेत (चार अलग भुजाओं वाले) का क्षेत्रफल कैसे निकालें?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "चारों भुजाओं के साथ एक तिरछी लाइन (एक कोने से सामने वाले कोने तक) भी नापें। इससे खेत दो त्रिकोण में बँट जाता है और हीरोन फ़ॉर्मूला से दोनों का क्षेत्रफल जोड़कर बिल्कुल सही जवाब मिलता है।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "बिना तिरछी लाइन के टेढ़े खेत का अंदाज़ा कैसे लगाएँ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "आमने-सामने की भुजाओं का औसत निकालें और दोनों औसत का गुणा करें। यह पुराना पटवारी तरीका है, जो लगभग चौकोर खेत के लिए ठीक है, पर ज़्यादा टेढ़े खेत में ग़लत हो सकता है।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "1 करम कितने फुट का होता है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "पंजाब-हरियाणा में 1 करम = 5.5 फुट। 1 सरसाही = 1 करम × 1 करम = 30.25 वर्ग फुट, और 9 सरसाही = 1 मरला।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "बँटवारे में हर हिस्सा कैसे निकालें?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "कुल ज़मीन को वर्ग फुट में बदलें, हिस्सों की संख्या से भाग दें, फिर वापस बीघा-बिस्वा में बदलें। कैलकुलेटर के बँटवारा हिस्से में यह अपने आप होता है।"
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "होम",
+   "item": "https://zameennaplo.in/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ज़मीन नापो",
+   "item": "https://zameennaplo.in/zameen-napo/"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="https://zameennaplo.in/">Zameen Naplo</a>
+    <a class="home-link" href="https://zameennaplo.in/">सभी कैलकुलेटर</a>
+  </div>
+</header>
+<main class="container">
+  <nav class="crumbs"><a href="https://zameennaplo.in/">होम</a> &rsaquo; ज़मीन नापो</nav>
+  <h1>ज़मीन नापो — अपने खेत या प्लॉट का पूरा हिसाब</h1>
+  <div class="quick">
+    <p>लंबाई-चौड़ाई डालें, या टेढ़े खेत की चारों भुजाएँ — और तुरंत जानें आपकी ज़मीन <strong>कितने बीघा-बिस्वा-बिस्वांसी</strong>, कट्ठा-धुर, कनाल-मरला, गज और एकड़ है। साथ में क़ीमत और बँटवारा भी।</p>
+  </div>
+<style>
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 4px}
+.tab{flex:1 1 45%;border:2px solid #c7d2fe;background:#eef2ff;color:#3730a3;border-radius:12px;padding:10px 8px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:inherit}
+.tab.on{background:#4f46e5;border-color:#4f46e5;color:#fff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.hint{font-size:.85rem;color:#475569;margin:6px 0 0}
+.err{color:#b91c1c;font-weight:700;margin-top:10px}
+.big{font-size:1.9rem;font-weight:900;color:#4338ca;line-height:1.25;margin:4px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{background:#eef2ff;border:1px solid #c7d2fe;border-radius:999px;padding:6px 12px;font-weight:700;font-size:.92rem;color:#1e1b4b}
+.sys{margin-top:12px;border-top:1px dashed #cbd5e1;padding-top:10px}
+.sys div{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:.95rem}
+.sys b{color:#0f172a;text-align:right}
+#shape{display:block;margin:12px auto 0;max-width:100%;background:#f0fdf4;border-radius:12px}
+.btn2{display:block;width:100%;text-align:center;background:#4f46e5;color:#fff;border:none;font-weight:700;border-radius:10px;padding:11px;margin-top:10px;font-size:1rem;cursor:pointer;font-family:inherit}
+.sec{margin-top:16px;padding:14px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0}
+.sec h3{margin:0 0 6px;font-size:1.05rem}
+.money{font-size:1.5rem;font-weight:900;color:#047857}
+</style>
+<section class="card" id="napo">
+  <h2>ज़मीन नापो कैलकुलेटर</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-m="rect" type="button">▭ सीधा प्लॉट</button>
+    <button class="tab" data-m="quad" type="button">⬠ टेढ़ा खेत (4 भुजा)</button>
+    <button class="tab" data-m="tri" type="button">△ त्रिकोण</button>
+    <button class="tab" data-m="mix" type="button">बीघा-बिस्वा डालें</button>
+  </div>
+
+  <div class="field" id="unitRow">
+    <label for="lu">नाप किसमें है?</label>
+    <select id="lu">
+      <option value="ft">फुट (feet)</option>
+      <option value="m">मीटर</option>
+      <option value="gaj">गज (yard)</option>
+      <option value="karam">करम (5.5 फुट)</option>
+    </select>
+  </div>
+
+  <div id="in-rect" class="mode">
+    <div class="grid2">
+      <div class="field"><label for="rl">लंबाई</label><input id="rl" type="number" inputmode="decimal" min="0" step="any" value="50"></div>
+      <div class="field"><label for="rw">चौड़ाई</label><input id="rw" type="number" inputmode="decimal" min="0" step="any" value="30"></div>
+    </div>
+  </div>
+
+  <div id="in-quad" class="mode" hidden>
+    <p class="hint">चारों भुजाएँ क्रम से डालें (A→B→C→D→A)। <b>तिरछी लाइन A से C</b> भी नाप लें तो जवाब बिल्कुल सही आएगा।</p>
+    <div class="grid2">
+      <div class="field"><label for="qa">भुजा AB</label><input id="qa" type="number" inputmode="decimal" min="0" step="any" value="100"></div>
+      <div class="field"><label for="qb">भुजा BC</label><input id="qb" type="number" inputmode="decimal" min="0" step="any" value="60"></div>
+      <div class="field"><label for="qc">भुजा CD</label><input id="qc" type="number" inputmode="decimal" min="0" step="any" value="90"></div>
+      <div class="field"><label for="qd">भुजा DA</label><input id="qd" type="number" inputmode="decimal" min="0" step="any" value="55"></div>
+    </div>
+    <div class="field"><label for="qp">तिरछी लाइन AC (अगर पता हो)</label><input id="qp" type="number" inputmode="decimal" min="0" step="any" placeholder="खाली छोड़ें तो अंदाज़ा लगेगा"></div>
+  </div>
+
+  <div id="in-tri" class="mode" hidden>
+    <div class="grid3">
+      <div class="field"><label for="ta">भुजा 1</label><input id="ta" type="number" inputmode="decimal" min="0" step="any" value="60"></div>
+      <div class="field"><label for="tb">भुजा 2</label><input id="tb" type="number" inputmode="decimal" min="0" step="any" value="80"></div>
+      <div class="field"><label for="tc">भुजा 3</label><input id="tc" type="number" inputmode="decimal" min="0" step="any" value="100"></div>
+    </div>
+  </div>
+
+  <div id="in-mix" class="mode" hidden>
+    <div class="grid3">
+      <div class="field"><label for="m1" id="m1l">बीघा</label><input id="m1" type="number" inputmode="decimal" min="0" step="any" value="2"></div>
+      <div class="field"><label for="m2" id="m2l">बिस्वा</label><input id="m2" type="number" inputmode="decimal" min="0" step="any" value="8"></div>
+      <div class="field"><label for="m3" id="m3l">बिस्वांसी</label><input id="m3" type="number" inputmode="decimal" min="0" step="any" value="0"></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="sys">आपका इलाक़ा / पैमाना</label>
+    <select id="sys">
+      <option value="up_pakka">उत्तर प्रदेश — पक्का (बीघा-बिस्वा-बिस्वांसी)</option>
+      <option value="up_kaccha">उत्तर प्रदेश — कच्चा बीघा</option>
+      <option value="bihar">बिहार (बीघा-कट्ठा-धुर)</option>
+      <option value="punjab">पंजाब / हरियाणा (कनाल-मरला-सरसाही)</option>
+      <option value="wb">पश्चिम बंगाल (बीघा-कट्ठा-छटाक)</option>
+    </select>
+  </div>
+
+  <div class="result" id="res" aria-live="polite">
+    <p class="rlabel">कुल ज़मीन</p>
+    <p class="big" id="rMain">—</p>
+    <div class="chips" id="rChips"></div>
+    <p class="hint" id="rNote"></p>
+    <div class="err" id="rErr" hidden></div>
+    <svg id="shape" width="320" height="220" viewBox="0 0 320 220" aria-label="खेत का आकार"></svg>
+    <div class="sys" id="rSys"></div>
+  </div>
+
+  <div class="sec">
+    <h3>💰 ज़मीन की क़ीमत</h3>
+    <div class="grid2">
+      <div class="field"><label for="rate">रेट (₹)</label><input id="rate" type="number" inputmode="decimal" min="0" step="any" placeholder="जैसे 500000"></div>
+      <div class="field"><label for="rateU">प्रति</label><select id="rateU"></select></div>
+    </div>
+    <p class="money" id="price"></p>
+  </div>
+
+  <div class="sec">
+    <h3>👨‍👩‍👦 बँटवारा (बराबर हिस्से)</h3>
+    <div class="field"><label for="parts">कितने हिस्से?</label>
+      <select id="parts"><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option></select></div>
+    <p id="share" style="margin:10px 0 0;font-weight:700"></p>
+  </div>
+
+  <button class="btn2" id="imgBtn" type="button">📷 हिसाब की फ़ोटो शेयर करें</button>
+  <a id="waShare" class="btn" target="_blank" rel="noopener">WhatsApp पर लिंक भेजें</a>
+</section>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const LEN={ft:1,m:3.28084,gaj:3,karam:5.5};
+const LEN_NAME={ft:'फुट',m:'मीटर',gaj:'गज',karam:'करम'};
+const SYS={
+ up_pakka:{n:'UP पक्का',u:[['बीघा',27225],['बिस्वा',1361.25],['बिस्वांसी',68.0625]]},
+ up_kaccha:{n:'UP कच्चा',u:[['बीघा',9075],['बिस्वा',453.75],['बिस्वांसी',22.6875]]},
+ bihar:{n:'बिहार',u:[['बीघा',27225],['कट्ठा',1361.25],['धुर',68.0625]]},
+ punjab:{n:'पंजाब-हरियाणा',u:[['कनाल',5445],['मरला',272.25],['सरसाही',30.25]]},
+ wb:{n:'पश्चिम बंगाल',u:[['बीघा',14400],['कट्ठा',720],['छटाक',45]]}
+};
+const RATE_U=[['वर्ग फुट',1],['गज',9],['वर्ग मीटर',10.7639],['बिस्वा (UP पक्का)',1361.25],['बीघा (UP पक्का)',27225],['कट्ठा (बिहार)',1361.25],['मरला',272.25],['कनाल',5445],['डिसमिल',435.6],['एकड़',43560]];
+let mode='rect';
+const f=(n,d=2)=>n.toLocaleString('en-IN',{maximumFractionDigits:d});
+const v=id=>{const x=parseFloat($(id).value);return isNaN(x)?NaN:x;};
+
+RATE_U.forEach(([n,s],i)=>{const o=document.createElement('option');o.value=i;o.textContent=n;$('rateU').appendChild(o);});
+$('rateU').value=1;
+
+function breakdown(sq,key){
+  const u=SYS[key].u; let r=sq; const out=[];
+  const a=Math.floor(r/u[0][1]+1e-9); r-=a*u[0][1];
+  let b=Math.floor(r/u[1][1]+1e-9); r-=b*u[1][1];
+  let c=Math.round(r/u[2][1]*100)/100;
+  const per=Math.round(u[1][1]/u[2][1]);
+  let A=a; if(c>=per){c-=per;b+=1;} const perB=Math.round(u[0][1]/u[1][1]); if(b>=perB){b-=perB;A+=1;}
+  return [[A,u[0][0]],[b,u[1][0]],[c,u[2][0]]].filter((x,i)=>x[0]>0||i===2&&A===0&&b===0).map(x=>f(x[0])+' '+x[1]).join(' ');
+}
+function heron(a,b,c){const s=(a+b+c)/2,q=s*(s-a)*(s-b)*(s-c);return q>0?Math.sqrt(q):NaN;}
+
+function compute(){
+  const L=LEN[$('lu').value], key=$('sys').value; let sq=NaN, note='', pts=null, err='';
+  if(mode==='rect'){const l=v('rl'),w=v('rw'); if(l>0&&w>0){sq=l*w*L*L; pts=[[0,0],[l,0],[l,w],[0,w]]; note=`${f(l)} × ${f(w)} ${LEN_NAME[$('lu').value]}`;} else err='लंबाई और चौड़ाई डालें';}
+  if(mode==='tri'){const a=v('ta'),b=v('tb'),c=v('tc'); const A=heron(a,b,c); if(A>0){sq=A*L*L; const x=(a*a+b*b-c*c)/(2*a); pts=[[0,0],[a,0],[x,Math.sqrt(Math.max(b*b-x*x,0))]]; note='हीरोन फ़ॉर्मूला से (बिल्कुल सही)';} else err='ये तीन भुजाएँ त्रिकोण नहीं बनातीं — नाप दोबारा देखें';}
+  if(mode==='quad'){const a=v('qa'),b=v('qb'),c=v('qc'),d=v('qd'),p=v('qp');
+    if(!(a>0&&b>0&&c>0&&d>0)) err='चारों भुजाएँ डालें';
+    else if(p>0){const t1=heron(a,b,p),t2=heron(c,d,p);
+      if(t1>0&&t2>0){sq=(t1+t2)*L*L; const cx=(a*a+p*p-b*b)/(2*a), cy=Math.sqrt(Math.max(p*p-cx*cx,0)); // C from A,B
+        // D: |AD|=d, |CD|=c, on other side of AC
+        const ux=cx/p,uy=cy/p, xd=(d*d-c*c+p*p)/(2*p), hd=Math.sqrt(Math.max(d*d-xd*xd,0));
+        const D=[ux*xd-uy*hd, uy*xd+ux*hd]; pts=[[0,0],[a,0],[cx,cy],D];
+        note='तिरछी लाइन के साथ — दो त्रिकोण जोड़कर (बिल्कुल सही)';}
+      else err='भुजाएँ और तिरछी लाइन मेल नहीं खातीं — नाप दोबारा देखें';}
+    else {sq=((a+c)/2)*((b+d)/2)*L*L; const W=(a+c)/2,H=(b+d)/2; pts=[[0,0],[a,0],[(a+c)/2,H],[(a-c)/2,H]];
+      note='⚠ अंदाज़ा: आमने-सामने की भुजाओं का औसत × औसत। तिरछी लाइन (AC) नापकर डालें तो सही जवाब मिलेगा।';}
+  }
+  if(mode==='mix'){const u=SYS[key].u; const a=v('m1')||0,b=v('m2')||0,c=v('m3')||0; sq=a*u[0][1]+b*u[1][1]+c*u[2][1]; if(!(sq>0)){sq=NaN;err='कोई वैल्यू डालें';} note=`${f(a)} ${u[0][0]} ${f(b)} ${u[1][0]} ${f(c)} ${u[2][0]} (${SYS[key].n})`;}
+  const U=LEN_NAME[$('lu').value], g=id=>f(v(id),1);
+  const head={rect:`प्लॉट: ${g('rl')} × ${g('rw')} ${U}`, tri:`त्रिकोण: ${g('ta')} · ${g('tb')} · ${g('tc')} ${U}`,
+    quad:`टेढ़ा खेत: ${g('qa')} · ${g('qb')} · ${g('qc')} · ${g('qd')} ${U}`, mix:`${SYS[key].n} पैमाना`}[mode];
+  return {sq,note,pts,err,key,head};
+}
+
+function drawShape(pts){
+  const svg=$('shape'); if(!pts){svg.innerHTML='';svg.style.display='none';return;} svg.style.display='';
+  const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]); const mx=Math.min(...xs),Mx=Math.max(...xs),my=Math.min(...ys),My=Math.max(...ys);
+  const s=Math.min(280/(Mx-mx||1),180/(My-my||1)); const ox=(320-(Mx-mx)*s)/2, oy=(220-(My-my)*s)/2;
+  const P=pts.map(p=>[ox+(p[0]-mx)*s, 220-(oy+(p[1]-my)*s)]);
+  const lab='ABCD'; let h=`<polygon points="${P.map(p=>p.join(',')).join(' ')}" fill="#86efac" stroke="#15803d" stroke-width="3" stroke-linejoin="round"/>`;
+  if(mode==='quad'&&v('qp')>0) h+=`<line x1="${P[0][0]}" y1="${P[0][1]}" x2="${P[2][0]}" y2="${P[2][1]}" stroke="#15803d" stroke-dasharray="6 5" stroke-width="2"/>`;
+  P.forEach((p,i)=>{h+=`<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="#15803d"/>`; if(mode!=='rect'&&mode!=='tri') h+=`<text x="${p[0]+(p[0]<160?-14:8)}" y="${p[1]+(p[1]<110?-6:16)}" font-size="14" font-weight="700" fill="#14532d">${lab[i]}</text>`;});
+  svg.innerHTML=h;
+}
+
+let last=null;
+function update(){
+  const r=compute(); last=r;
+  $('rErr').hidden=!r.err; $('rErr').textContent=r.err;
+  if(!(r.sq>0)){ $('rMain').textContent='—'; $('rChips').innerHTML=''; $('rSys').innerHTML=''; $('rNote').textContent=''; $('price').textContent=''; $('share').textContent=''; drawShape(null); return; }
+  const sq=r.sq;
+  $('rMain').textContent=breakdown(sq,r.key);
+  $('rChips').innerHTML=[[f(sq,0)+' वर्ग फुट'],[f(sq/9)+' गज'],[f(sq/10.7639)+' वर्ग मीटर'],[f(sq/435.6)+' डिसमिल'],[f(sq/43560,3)+' एकड़']].map(x=>`<span class="chip">${x}</span>`).join('');
+  $('rNote').textContent=r.note;
+  $('rSys').innerHTML='<p class="rlabel" style="margin:0 0 4px">दूसरे पैमानों में</p>'+Object.keys(SYS).filter(k=>k!==r.key).map(k=>`<div><span>${SYS[k].n}</span><b>${breakdown(sq,k)}</b></div>`).join('');
+  drawShape(r.pts);
+  const rate=v('rate'); const ru=RATE_U[+$('rateU').value];
+  if(rate>0){const tot=sq/ru[1]*rate; $('price').textContent='कुल क़ीमत: ₹'+f(Math.round(tot),0)+inWords(tot);} else $('price').textContent='';
+  const n=+$('parts').value; $('share').textContent=`हर हिस्सा: ${breakdown(sq/n,r.key)} (${f(sq/n,0)} वर्ग फुट = ${f(sq/n/9)} गज)`;
+  const q=new URLSearchParams({m:mode,u:$('lu').value,s:r.key});
+  ({rect:['rl','rw'],quad:['qa','qb','qc','qd','qp'],tri:['ta','tb','tc'],mix:['m1','m2','m3']})[mode].forEach(id=>{if($(id).value!=='')q.set(id,$(id).value);});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'','?'+q.toString());}catch(e){}
+  $('waShare').href='https://wa.me/?text='+encodeURIComponent(`ज़मीन का हिसाब: ${breakdown(sq,r.key)} = ${f(sq,0)} वर्ग फुट = ${f(sq/9)} गज\nखुद चेक करें: ${url}`);
+}
+function inWords(n){ if(n>=1e7) return ` (${f(n/1e7)} करोड़)`; if(n>=1e5) return ` (${f(n/1e5)} लाख)`; return ''; }
+
+function setMode(m){ mode=m; document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.m===m));
+  document.querySelectorAll('.mode').forEach(d=>d.hidden=d.id!=='in-'+m); $('unitRow').hidden=(m==='mix'); setMixLabels(); update(); }
+function setMixLabels(){ const u=SYS[$('sys').value].u; ['m1l','m2l','m3l'].forEach((id,i)=>$(id).textContent=u[i][0]); }
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>setMode(t.dataset.m)));
+document.querySelectorAll('#napo input, #napo select').forEach(e=>{e.addEventListener('input',update);e.addEventListener('change',()=>{if(e.id==='sys')setMixLabels();update();});});
+
+// share image (canvas)
+$('imgBtn').addEventListener('click',async()=>{
+  if(!last||!(last.sq>0))return; const c=document.createElement('canvas'); c.width=1080;c.height=1080; const x=c.getContext('2d');
+  const g=x.createLinearGradient(0,0,0,1080); g.addColorStop(0,'#4f46e5'); g.addColorStop(1,'#1e1b4b'); x.fillStyle=g; x.fillRect(0,0,1080,1080);
+  const font="'Nirmala UI','Noto Sans Devanagari','Mangal',sans-serif"; x.textAlign='center'; x.fillStyle='#c7d2fe'; x.font='700 40px '+font; x.fillText('ZAMEEN NAPLO • ज़मीन का हिसाब',540,110);
+  x.fillStyle='#fff'; x.font='800 44px '+font; x.fillText(last.head,540,210); x.fillStyle='#c7d2fe'; x.font='700 36px '+font; x.fillText('('+SYS[last.key].n+' पैमाना)',540,265);
+  x.fillStyle='#6ee7b7'; x.font='900 76px '+font; const main=breakdown(last.sq,last.key); x.fillText(main,540,380);
+  x.fillStyle='#fff'; x.font='800 54px '+font; x.fillText(f(last.sq,0)+' वर्ग फुट',540,500); x.fillText(f(last.sq/9)+' गज',540,580); x.fillText(f(last.sq/43560,3)+' एकड़',540,660);
+  if($('price').textContent){x.fillStyle='#fcd34d'; x.font='800 48px '+font; x.fillText($('price').textContent.slice(0,40),540,780);}
+  x.fillStyle='#6ee7b7'; x.beginPath(); x.roundRect?x.roundRect(240,900,600,100,30):x.rect(240,900,600,100); x.fill(); x.fillStyle='#1e1b4b'; x.font='900 54px '+font; x.fillText('zameennaplo.in',540,970);
+  const blob=await new Promise(r=>c.toBlob(r,'image/png')); const file=new File([blob],'zameen-hisab.png',{type:'image/png'});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],text:'ज़मीन का हिसाब — zameennaplo.in'});return;}catch(e){}}
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='zameen-hisab.png'; a.click();
+});
+
+// load from URL
+const q=new URLSearchParams(location.search);
+if(q.get('s')&&SYS[q.get('s')]) $('sys').value=q.get('s');
+if(q.get('u')&&LEN[q.get('u')]) $('lu').value=q.get('u');
+['rl','rw','qa','qb','qc','qd','qp','ta','tb','tc','m1','m2','m3'].forEach(id=>{if(q.has(id))$(id).value=q.get(id);});
+setMode(['rect','quad','tri','mix'].includes(q.get('m'))?q.get('m'):'rect');
+})();
+</script>
+
+  <h2>ज़मीन कैसे नापें? (आसान तरीका)</h2>
+  <ul>
+    <li><strong>फ़ीता (टेप) लें</strong> और खेत की हर भुजा कोने से कोने तक नापें। एक ही इकाई रखें — सब फुट में या सब मीटर में।</li>
+    <li><strong>सीधा प्लॉट</strong> हो तो सिर्फ़ लंबाई और चौड़ाई काफ़ी है।</li>
+    <li><strong>टेढ़ा खेत</strong> हो तो चारों भुजाएँ क्रम से (A→B→C→D) नापें, और <strong>एक तिरछी लाइन A से C</strong> भी। इससे खेत दो त्रिकोण में बँटता है और जवाब बिल्कुल सही आता है।</li>
+    <li>पंजाब-हरियाणा में नाप अक्सर <strong>करम</strong> में होता है (1 करम = 5.5 फुट) — कैलकुलेटर में "करम" चुनें।</li>
+  </ul>
+  <h2>फ़ॉर्मूला जो कैलकुलेटर इस्तेमाल करता है</h2>
+  <ul>
+    <li><strong>सीधा प्लॉट:</strong> क्षेत्रफल = लंबाई &times; चौड़ाई</li>
+    <li><strong>त्रिकोण (हीरोन फ़ॉर्मूला):</strong> s = (a + b + c) &divide; 2, क्षेत्रफल = &radic;[s(s&minus;a)(s&minus;b)(s&minus;c)]</li>
+    <li><strong>टेढ़ा खेत, तिरछी लाइन के साथ:</strong> दोनों त्रिकोणों (ABC और ACD) का क्षेत्रफल जोड़ें</li>
+    <li><strong>टेढ़ा खेत, बिना तिरछी लाइन (अंदाज़ा):</strong> ((AB + CD) &divide; 2) &times; ((BC + DA) &divide; 2)</li>
+  </ul>
+  <p>फिर वर्ग फुट को अपने इलाक़े के पैमाने में बदला जाता है — जैसे UP पक्का: 1 बीघा = 27,225, 1 बिस्वा = 1,361.25 और 1 बिस्वांसी = 68.06 वर्ग फुट। हर पैमाने की पूरी जानकारी के लिए <a href="/hi/biswa-to-sqft-up/">बिस्वा</a>, <a href="/hi/bigha-to-sqft/">बीघा</a>, <a href="/hi/katha-to-sqft-bihar/">कट्ठा</a> और <a href="/hi/kanal-to-marla/">कनाल</a> पेज देखें।</p>
+  <p class="hint">ध्यान दें: रजिस्ट्री, बँटवारे या कोर्ट के काम के लिए आधिकारिक नाप लेखपाल/अमीन से ही करवाएँ। यह कैलकुलेटर आपके अपने नाप पर अंदाज़ा देने के लिए है।</p>
+  <h2>अक्सर पूछे जाने वाले सवाल</h2>
+  <details>
+    <summary>लंबाई-चौड़ाई से बीघा कैसे निकालें?</summary>
+    <p>लंबाई × चौड़ाई (फुट में) से वर्ग फुट निकालें, फिर UP पक्के बीघा के लिए 27,225 से भाग दें। जैसे 165 × 165 फुट = 27,225 वर्ग फुट = 1 बीघा। ऊपर का कैलकुलेटर यह अपने आप बीघा-बिस्वा-बिस्वांसी में बता देता है।</p>
+  </details>
+  <details>
+    <summary>टेढ़े खेत (चार अलग भुजाओं वाले) का क्षेत्रफल कैसे निकालें?</summary>
+    <p>चारों भुजाओं के साथ एक तिरछी लाइन (एक कोने से सामने वाले कोने तक) भी नापें। इससे खेत दो त्रिकोण में बँट जाता है और हीरोन फ़ॉर्मूला से दोनों का क्षेत्रफल जोड़कर बिल्कुल सही जवाब मिलता है।</p>
+  </details>
+  <details>
+    <summary>बिना तिरछी लाइन के टेढ़े खेत का अंदाज़ा कैसे लगाएँ?</summary>
+    <p>आमने-सामने की भुजाओं का औसत निकालें और दोनों औसत का गुणा करें। यह पुराना पटवारी तरीका है, जो लगभग चौकोर खेत के लिए ठीक है, पर ज़्यादा टेढ़े खेत में ग़लत हो सकता है।</p>
+  </details>
+  <details>
+    <summary>1 करम कितने फुट का होता है?</summary>
+    <p>पंजाब-हरियाणा में 1 करम = 5.5 फुट। 1 सरसाही = 1 करम × 1 करम = 30.25 वर्ग फुट, और 9 सरसाही = 1 मरला।</p>
+  </details>
+  <details>
+    <summary>बँटवारे में हर हिस्सा कैसे निकालें?</summary>
+    <p>कुल ज़मीन को वर्ग फुट में बदलें, हिस्सों की संख्या से भाग दें, फिर वापस बीघा-बिस्वा में बदलें। कैलकुलेटर के बँटवारा हिस्से में यह अपने आप होता है।</p>
+  </details>
+</main>
+<footer class="site">
+  <div class="wrap">यह एक मुफ़्त रेफ़रेंस टूल है। वैल्यू स्टैंडर्ड क्षेत्रीय पैमानों पर आधारित हैं। रजिस्ट्री या कानूनी काम के लिए अपने तहसील/लैंड रिकॉर्ड ऑफ़िस से पुष्टि करें। &copy; Zameen Naplo
+    <div class="legal"><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/privacy-policy/">Privacy Policy</a> · अपडेट: 25 सितंबर 2026</div>
+  </div>
+</footer>
+</body>
+</html>
