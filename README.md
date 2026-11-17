@@ -1,20 +1,21 @@
-ZAMEEN NAPLO - COMPLETE SITE (homepage + 10 pages, internal linking done)
+# Zameen Naplo — zameennaplo.in
 
-KYA BADLA HAI:
-1. index.html - footer se pehle "Popular Land Unit Converters" section add hua
-   (homepage se sabhi 10 pages ko internal link)
-2. 10 naye page folders - har page me calculator, table, FAQ + matched schema,
-   cluster-wise internal links (UP / Bihar / Punjab / Maharashtra)
-3. sitemap.xml - ab 11 URLs hai (pehle sirf 1 tha)
-4. Google verification file ka naam fix hua:
-   "google94616592e18327b5 (1).html" -> "google94616592e18327b5.html"
+Indian land area converters (Bigha, Biswa, Katha, Dhur, Marla, Kanal, Guntha, Gaj) in Hinglish and Hindi,
+plus the "ज़मीन नापो" field-area calculator (`/zameen-napo/`).
 
-DEPLOY:
-1. GitHub repo ka PURANA content delete karke is zip ka content daalo
-   (CNAME, robots.txt, favicon sab isme already hai)
-2. Commit + push -> 2-3 minute me live
-3. GSC me sitemap dobara submit karo (wahi URL: /sitemap.xml)
-4. GSC me roz 3-4 pages ka URL Inspection -> Request Indexing
-5. 2-3 pages validator.schema.org par check karo (FAQ schema green aana chahiye)
+## Hosting & deploy
 
-AdSense: har naye page me 2 comment slots hain (<!-- AdSense slot -->).
+- Hosting: **Cloudflare Pages** (project `zameennaplo`), static files from the repo root — no build step.
+- DNS: Cloudflare (`frank` / `simone.ns.cloudflare.com`). Domain registrar: Hostinger.
+- Deploy: push to `main` → Cloudflare Pages deploys automatically in ~1 minute.
+  If a push does not deploy, use the `manual-main` Deploy Hook in Cloudflare
+  (Pages → zameennaplo → Settings → Builds → Deploy Hooks).
+- `www.zameennaplo.in` → 301 redirect to `zameennaplo.in` (Cloudflare Redirect Rule).
+- `functions/google94616592e18327b5.html.js` serves the Google Search Console verification file
+  at its exact URL (Cloudflare Pages otherwise redirects `*.html`). `_routes.json` limits Functions to that path.
+- Email: ImprovMX (`contact@zameennaplo.in`) — keep the MX and SPF records in Cloudflare DNS.
+
+## After content changes
+
+1. Update `<lastmod>` for changed URLs in `sitemap.xml`.
+2. In Google Search Console, use URL Inspection → Request Indexing for important changed pages.
