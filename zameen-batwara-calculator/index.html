@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F6G82QYJ2M');
+  // gtag.js page load ke baad load hota hai taaki page jaldi dikhe (first interaction ya 3.5s, jo pehle ho)
+  (function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-F6G82QYJ2M';document.head.appendChild(s);}
+  ['scroll','click','touchstart','keydown'].forEach(function(e){window.addEventListener(e,load,{once:true,passive:true});});
+  window.addEventListener('load',function(){setTimeout(load,3500);});})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<title>ज़मीन बँटवारा कैलकुलेटर: भाइयों/वारिसों में बीघा-बिस्वा बाँटें, खतौनी का हिस्सा (अंश) निकालें</title>
+<meta name="description" content="खतौनी का रकबा (हेक्टेयर) या बीघा-बिस्वा डालें और बराबर या 1/3, 25% जैसे हिस्सों में बाँटें। हर हिस्सेदार की ज़मीन बीघा-बिस्वा-बिस्वांसी, कट्ठा-धुर, गज और हेक्टेयर में, क़ीमत के साथ।">
+<link rel="canonical" href="https://zameennaplo.in/zameen-batwara-calculator/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="ज़मीन बँटवारा कैलकुलेटर — हर हिस्सेदार की ज़मीन बीघा-बिस्वा में">
+<meta property="og:description" content="खतौनी का रकबा (हेक्टेयर) या बीघा-बिस्वा डालें और बराबर या 1/3, 25% जैसे हिस्सों में बाँटें। हर हिस्सेदार की ज़मीन बीघा-बिस्वा-बिस्वांसी, कट्ठा-धुर, गज और हेक्टेयर में, क़ीमत के साथ।">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zameennaplo.in/zameen-batwara-calculator/">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:site_name" content="Zameen Naplo">
+<meta property="og:image" content="https://zameennaplo.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans','Noto Sans Devanagari','Nirmala UI',Arial,sans-serif;background:#f1f5f9;color:#1e293b;line-height:1.6}
+a{color:#4f46e5}
+header.site{background:#fff;border-bottom:1px solid #e2e8f0}
+header.site .wrap{max-width:42rem;margin:0 auto;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{text-decoration:none}
+header.site .brand{font-size:1.25rem;font-weight:800;color:#0f172a}
+header.site .home-link{font-size:.85rem;color:#4f46e5;text-decoration:underline}
+.container{max-width:42rem;margin:0 auto;padding:20px 16px}
+.crumbs{font-size:.85rem;color:#475569;margin-bottom:14px}
+h1{font-size:1.6rem;line-height:1.3;margin:0 0 6px;font-weight:800;color:#0f172a}
+h2{font-size:1.25rem;margin:26px 0 10px;font-weight:700;color:#0f172a}
+.quick{background:#eef2ff;border:1px solid #c7d2fe;border-radius:12px;padding:14px 16px;margin-top:14px}
+.quick .label{font-weight:700;color:#3730a3;margin:0 0 4px}
+.quick p{margin:0}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px;margin-top:20px;box-shadow:0 10px 25px -12px rgba(100,116,139,.25)}
+.card h2{margin-top:0}
+label{display:block;font-size:.85rem;font-weight:600;color:#475569;margin-bottom:4px}
+select,input[type=number]{width:100%;border:1px solid #cbd5e1;border-radius:10px;padding:10px;font-size:1.05rem;background:#fff;color:#1e293b}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.field{margin-top:14px}
+.swap{background:none;border:none;color:#4f46e5;text-decoration:underline;font-size:.9rem;padding:0;margin-top:12px;cursor:pointer}
+.result{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:14px;margin-top:14px}
+.result .rlabel{font-size:.85rem;color:#64748b;margin:0}
+.result .rmain{font-size:1.5rem;font-weight:800;color:#4338ca;margin:4px 0 0}
+.result .rextra{font-size:.9rem;color:#475569;margin:8px 0 0}
+.btn{display:block;text-align:center;background:#047857;color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:11px;margin-top:14px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e2e8f0;font-size:.95rem}
+th,td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left}
+thead{background:#f8fafc}
+tr:last-child td{border-bottom:none}
+.tablewrap{overflow-x:auto;margin-top:10px;border-radius:12px;border:1px solid #e2e8f0}
+.tablewrap table{border:none}
+details{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 16px;margin-top:10px}
+summary{font-weight:600;cursor:pointer;color:#0f172a}
+details p{color:#475569;margin:10px 0 0}
+ul.related{padding-left:20px;margin-top:10px}
+ul.related li{margin-top:6px}
+footer.site{border-top:1px solid #e2e8f0;background:#fff;margin-top:36px}
+footer.site .wrap{max-width:42rem;margin:0 auto;padding:18px 16px;font-size:.85rem;color:#64748b;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+:focus-visible{outline:2px solid #4f46e5;outline-offset:2px}
+footer.site nav{margin-top:12px;line-height:1.9}footer.site nav a{color:#4f46e5;text-decoration:none;white-space:nowrap}footer.site nav a:hover{text-decoration:underline}footer.site .legal{margin-top:10px}
+body{line-height:1.75}h3{font-size:1.05rem;margin:18px 0 4px;font-weight:700;color:#0f172a}.langswitch{display:inline-block;margin-top:10px;font-size:.9rem;font-weight:600}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "ज़मीन बँटवारा कैलकुलेटर",
+ "url": "https://zameennaplo.in/zameen-batwara-calculator/",
+ "applicationCategory": "UtilitiesApplication",
+ "operatingSystem": "Any",
+ "inLanguage": "hi",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "INR"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "3 भाइयों में ज़मीन कैसे बाँटें?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "कुल ज़मीन को वर्ग फुट में बदलें, 3 से भाग दें और वापस बीघा-बिस्वा में बदलें। जैसे 1 बीघा (27,225 वर्ग फुट) ÷ 3 = 9,075 वर्ग फुट = 6 बिस्वा 13.33 बिस्वांसी (UP पक्का)। ऊपर के कैलकुलेटर में \"बराबर हिस्से\" चुनकर यह तुरंत होता है।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "खतौनी में मेरा हिस्सा (अंश) 1/3 लिखा है, मेरी ज़मीन कितनी है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "खाते के कुल रकबे को आपके अंश से गुणा करें। जैसे रकबा 1.200 हेक्टेयर और अंश 1/3 हो तो आपका हिस्सा 0.400 हेक्टेयर ≈ 1 बीघा 11 बिस्वा 12.6 बिस्वांसी (UP पक्का)। कैलकुलेटर में \"अलग-अलग हिस्से\" में 1/3 लिखें।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "क्या यह कैलकुलेटर बताता है कि क़ानूनन किसका कितना हिस्सा है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "नहीं। यह सिर्फ़ आपके डाले हिस्सों के हिसाब से ज़मीन बाँटता है। क़ानूनी हिस्सा उत्तराधिकार के नियम, वसीयत या आपसी समझौते से तय होता है — इसके लिए तहसील या वकील से सलाह लें।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "बँटवारा खतौनी में कैसे दर्ज होता है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "आपसी सहमति से बँटवारे का लेखपत्र (विभाजन पत्र) रजिस्टर कराया जा सकता है — IGRS UP पर इसका मॉडल लेखपत्र \"125 विभाजन पत्र\" उपलब्ध है। विवाद हो तो राजस्व न्यायालय में बँटवारे का वाद चलता है। प्रक्रिया अपनी तहसील से पूछें।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "हिस्सों का जोड़ 100% से कम हो तो?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "कैलकुलेटर बची हुई ज़मीन अलग दिखाता है — जैसे किसी हिस्सेदार का नाम छूट गया हो तो तुरंत पता चल जाता है।"
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "होम",
+   "item": "https://zameennaplo.in/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ज़मीन बँटवारा कैलकुलेटर",
+   "item": "https://zameennaplo.in/zameen-batwara-calculator/"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="https://zameennaplo.in/">Zameen Naplo</a>
+    <a class="home-link" href="https://zameennaplo.in/">सभी कैलकुलेटर</a>
+  </div>
+</header>
+<main class="container">
+  <nav class="crumbs"><a href="https://zameennaplo.in/">होम</a> &rsaquo; ज़मीन बँटवारा कैलकुलेटर</nav>
+  <h1>ज़मीन बँटवारा कैलकुलेटर — हर हिस्सेदार की ज़मीन बीघा-बिस्वा में</h1>
+  <div class="quick">
+    <p>खतौनी का रकबा (हेक्टेयर) या बीघा-बिस्वा डालें, हिस्से चुनें — <strong>बराबर</strong> या <strong>1/3, 1/6, 25%</strong> जैसे अलग-अलग — और तुरंत देखें हर भाई/वारिस के हिस्से में कितने <strong>बीघा-बिस्वा-बिस्वांसी</strong>, गज और हेक्टेयर आते हैं।</p>
+  </div>
+<style>
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+.tab{flex:1 1 45%;border:2px solid #c7d2fe;background:#eef2ff;color:#3730a3;border-radius:12px;padding:10px 8px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:inherit}
+.tab.on{background:#4f46e5;border-color:#4f46e5;color:#fff}
+.heir{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 34px;gap:8px;align-items:end;margin-top:8px}
+#bw input,#bw select{min-width:0;max-width:100%}
+#bw input[type=text]{width:100%;border:1px solid #cbd5e1;border-radius:10px;padding:10px;font-size:1.05rem;background:#fff;color:#1e293b;font-family:inherit}
+.heir button{height:42px;border:1px solid #fecaca;background:#fef2f2;color:#b91c1c;border-radius:10px;font-weight:800;cursor:pointer}
+.add{margin-top:10px;background:#eef2ff;border:1px dashed #6366f1;color:#3730a3;border-radius:10px;padding:9px;width:100%;font-weight:700;cursor:pointer;font-family:inherit}
+.hint{font-size:.85rem;color:#475569;margin:6px 0 0}
+.err{color:#b91c1c;font-weight:700;margin-top:10px}
+.ok{color:#047857;font-weight:700;margin-top:10px}
+.sh{border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin-top:10px;background:#fff}
+.sh .nm{font-weight:800;color:#0f172a}
+.sh .bb{font-size:1.35rem;font-weight:900;color:#4338ca;margin:2px 0}
+.sh .sm{font-size:.9rem;color:#475569}
+.btn2{display:block;width:100%;text-align:center;background:#4f46e5;color:#fff;border:none;font-weight:700;border-radius:10px;padding:11px;margin-top:10px;font-size:1rem;cursor:pointer;font-family:inherit}
+</style>
+<section class="card" id="bw">
+  <h2>ज़मीन बँटवारा कैलकुलेटर</h2>
+
+  <div class="field"><label for="inU">कुल ज़मीन किसमें है?</label>
+    <select id="inU">
+      <option value="ha">हेक्टेयर (खतौनी का रकबा)</option>
+      <option value="up_pakka">बीघा-बिस्वा-बिस्वांसी (UP पक्का)</option>
+      <option value="up_kaccha">बीघा-बिस्वा-बिस्वांसी (UP कच्चा)</option>
+      <option value="bihar">बीघा-कट्ठा-धुर (बिहार)</option>
+      <option value="punjab">कनाल-मरला-सरसाही (पंजाब/हरियाणा)</option>
+      <option value="acre">एकड़-डिसमिल</option>
+      <option value="gaj">गज</option>
+      <option value="sqft">वर्ग फुट</option>
+    </select>
+  </div>
+  <div class="grid3" id="in3">
+    <div class="field"><label for="a1" id="a1l">हेक्टेयर</label><input id="a1" type="number" inputmode="decimal" min="0" step="any" value="1.2"></div>
+    <div class="field" id="a2w"><label for="a2" id="a2l"></label><input id="a2" type="number" inputmode="decimal" min="0" step="any" value="0"></div>
+    <div class="field" id="a3w"><label for="a3" id="a3l"></label><input id="a3" type="number" inputmode="decimal" min="0" step="any" value="0"></div>
+  </div>
+
+  <div class="field"><label for="outS">नतीजा किस पैमाने में?</label>
+    <select id="outS">
+      <option value="up_pakka">UP पक्का (बीघा-बिस्वा-बिस्वांसी)</option>
+      <option value="up_kaccha">UP कच्चा (बीघा-बिस्वा-बिस्वांसी)</option>
+      <option value="bihar">बिहार (बीघा-कट्ठा-धुर)</option>
+      <option value="punjab">पंजाब/हरियाणा (कनाल-मरला-सरसाही)</option>
+      <option value="wb">पश्चिम बंगाल (बीघा-कट्ठा-छटाक)</option>
+    </select>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-m="eq" type="button">बराबर हिस्से</button>
+    <button class="tab" data-m="cu" type="button">अलग-अलग हिस्से</button>
+  </div>
+  <div id="m-eq">
+    <div class="field"><label for="n">कितने हिस्सेदार?</label>
+      <select id="n"><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+  </div>
+  <div id="m-cu" hidden>
+    <p class="hint">हर हिस्सेदार का हिस्सा भिन्न (जैसे <b>1/3</b>, <b>1/6</b>) या प्रतिशत (जैसे <b>25%</b>) में लिखें।</p>
+    <div id="heirs"></div>
+    <button class="add" id="addH" type="button">+ हिस्सेदार जोड़ें</button>
+  </div>
+
+  <div class="field"><label for="rate" id="ratel">रेट (₹, वैकल्पिक) — प्रति बीघा</label><input id="rate" type="number" inputmode="decimal" min="0" step="any" placeholder="जैसे 1500000"></div>
+
+  <div class="result">
+    <p class="rlabel">कुल ज़मीन</p>
+    <p class="big" id="tot" style="font-size:1.4rem;font-weight:900;color:#4338ca;margin:4px 0">—</p>
+    <p class="rextra" id="totx"></p>
+    <div id="msg"></div>
+    <div id="shares"></div>
+  </div>
+  <a id="waShare" class="btn" target="_blank" rel="noopener">WhatsApp पर बँटवारे का हिसाब भेजें</a>
+  <p class="hint">यह कैलकुलेटर सिर्फ़ आपके डाले हिस्सों के हिसाब से ज़मीन बाँटता है। क़ानूनी हिस्सा कितना बनता है, यह क़ानून, वसीयत या आपसी समझौते से तय होता है — रिकॉर्ड में बँटवारे के लिए तहसील से प्रक्रिया पूछें।</p>
+</section>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const f=(n,d=2)=>n.toLocaleString('en-IN',{maximumFractionDigits:d});
+const HA=107639.104;
+const SYS={
+ up_pakka:{n:'UP पक्का',u:[['बीघा',27225],['बिस्वा',1361.25],['बिस्वांसी',68.0625]]},
+ up_kaccha:{n:'UP कच्चा',u:[['बीघा',9075],['बिस्वा',453.75],['बिस्वांसी',22.6875]]},
+ bihar:{n:'बिहार',u:[['बीघा',27225],['कट्ठा',1361.25],['धुर',68.0625]]},
+ punjab:{n:'पंजाब-हरियाणा',u:[['कनाल',5445],['मरला',272.25],['सरसाही',30.25]]},
+ wb:{n:'पश्चिम बंगाल',u:[['बीघा',14400],['कट्ठा',720],['छटाक',45]]}
+};
+const IN={ha:{u:[['हेक्टेयर',HA]]}, acre:{u:[['एकड़',43560],['डिसमिल',435.6]]}, gaj:{u:[['गज',9]]}, sqft:{u:[['वर्ग फुट',1]]}};
+let mode='eq';
+
+function bd(sq,key){
+  const u=SYS[key].u; let r=sq;
+  let a=Math.floor(r/u[0][1]+1e-9); r-=a*u[0][1];
+  let b=Math.floor(r/u[1][1]+1e-9); r-=b*u[1][1];
+  let c=Math.round(r/u[2][1]*100)/100;
+  const p2=Math.round(u[1][1]/u[2][1]), p1=Math.round(u[0][1]/u[1][1]);
+  if(c>=p2){c-=p2;b++;} if(b>=p1){b-=p1;a++;}
+  const parts=[]; if(a)parts.push(a+' '+u[0][0]); if(b)parts.push(b+' '+u[1][0]); if(c||!parts.length)parts.push(f(c)+' '+u[2][0]);
+  return parts.join(' ');
+}
+function inputUnits(){const k=$('inU').value; return (SYS[k]||IN[k]).u;}
+function setLabels(){
+  const u=inputUnits();
+  $('a1l').textContent=u[0][0];
+  $('a2w').hidden=!u[1]; $('a3w').hidden=!u[2];
+  if(u[1]) $('a2l').textContent=u[1][0]; if(u[2]) $('a3l').textContent=u[2][0];
+}
+function totalSq(){
+  const u=inputUnits(); let s=0;
+  ['a1','a2','a3'].forEach((id,i)=>{ if(u[i]){ const v=parseFloat($(id).value)||0; s+=v*u[i][1]; } });
+  return s;
+}
+function parseShare(t){
+  t=(t||'').trim().replace(/\s+/g,'');
+  if(!t) return NaN;
+  if(/^\d+(\.\d+)?%$/.test(t)) return parseFloat(t)/100;
+  const m=t.match(/^(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/); if(m) return (+m[2])>0?(+m[1])/(+m[2]):NaN;
+  if(/^\d*\.\d+$/.test(t)) return parseFloat(t);
+  return NaN;
+}
+function heirRow(name,share){
+  const d=document.createElement('div'); d.className='heir';
+  d.innerHTML='<div class="field" style="margin:0"><label>नाम</label><input class="hn" type="text" maxlength="30"></div><div class="field" style="margin:0"><label>हिस्सा</label><input class="hs" type="text" inputmode="decimal" placeholder="1/3 या 25%"></div><button type="button" aria-label="हटाएँ">✕</button>';
+  d.querySelector('.hn').value=name||''; d.querySelector('.hs').value=share||'';
+  d.querySelector('button').onclick=()=>{d.remove();update();};
+  d.querySelectorAll('input').forEach(i=>i.addEventListener('input',update));
+  $('heirs').appendChild(d);
+}
+function getHeirs(){
+  if(mode==='eq'){ const n=+$('n').value; return Array.from({length:n},(_,i)=>({name:'हिस्सेदार '+(i+1),fr:1/n,raw:'1/'+n})); }
+  return [...document.querySelectorAll('#heirs .heir')].map((d,i)=>({name:d.querySelector('.hn').value.trim()||('हिस्सेदार '+(i+1)),raw:d.querySelector('.hs').value,fr:parseShare(d.querySelector('.hs').value)}));
+}
+function update(){
+  const sq=totalSq(), key=$('outS').value, U=SYS[key].u;
+  $('ratel').textContent='रेट (₹, वैकल्पिक) — प्रति '+U[0][0];
+  if(!(sq>0)){ $('tot').textContent='—'; $('totx').textContent=''; $('shares').innerHTML=''; $('msg').innerHTML=''; return; }
+  $('tot').textContent=bd(sq,key);
+  $('totx').textContent='= '+f(sq,0)+' वर्ग फुट = '+f(sq/9)+' गज = '+f(sq/HA,4)+' हेक्टेयर';
+  const hs=getHeirs(); const bad=hs.filter(h=>!(h.fr>0)); const sum=hs.reduce((a,h)=>a+(h.fr>0?h.fr:0),0);
+  let msg='';
+  if(mode==='cu'){
+    if(bad.length) msg='<div class="err">कुछ हिस्से समझ नहीं आए — 1/3 या 25% जैसे लिखें।</div>';
+    else if(sum>1.0005) msg='<div class="err">⚠ हिस्सों का जोड़ '+f(sum*100)+'% है — 100% से ज़्यादा नहीं हो सकता।</div>';
+    else if(sum<0.9995) msg='<div class="ok">हिस्सों का जोड़ '+f(sum*100)+'% — बची ज़मीन: '+bd(sq*(1-sum),key)+' ('+f(sq*(1-sum),0)+' वर्ग फुट)</div>';
+    else msg='<div class="ok">✓ हिस्सों का जोड़ 100%</div>';
+  }
+  $('msg').innerHTML=msg;
+  const rate=parseFloat($('rate').value);
+  $('shares').innerHTML=hs.filter(h=>h.fr>0).map(h=>{ const s=sq*h.fr; const val=rate>0?'<div class="sm">क़ीमत: ₹'+f(Math.round(s/U[0][1]*rate),0)+'</div>':''; return '<div class="sh"><div class="nm">'+h.name.replace(/[<>&]/g,'')+' — '+(mode==='eq'?h.raw:(h.raw.includes('%')?h.raw:h.raw+' ('+f(h.fr*100)+'%)'))+'</div><div class="bb">'+bd(s,key)+'</div><div class="sm">'+f(s,0)+' वर्ग फुट · '+f(s/9)+' गज · '+f(s/HA,4)+' हेक्टेयर</div>'+val+'</div>'; }).join('');
+  // share URL
+  const q=new URLSearchParams({u:$('inU').value,a1:$('a1').value,a2:$('a2').value,a3:$('a3').value,o:key,m:mode,n:$('n').value});
+  if(mode==='cu') q.set('h',hs.map(h=>h.name.replace(/[|~]/g,'')+'~'+h.raw).join('|'));
+  if(rate>0) q.set('r',$('rate').value);
+  try{history.replaceState(null,'','?'+q.toString());}catch(e){}
+  const url=location.origin+location.pathname+'?'+q.toString();
+  const lines=hs.filter(h=>h.fr>0).map(h=>'• '+h.name+': '+bd(sq*h.fr,key)).join('\n');
+  $('waShare').href='https://wa.me/?text='+encodeURIComponent('ज़मीन का बँटवारा ('+SYS[key].n+')\nकुल: '+bd(sq,key)+'\n'+lines+'\nखुद देखें: '+url);
+}
+function setMode(m){ mode=m; document.querySelectorAll('#bw .tab').forEach(t=>t.classList.toggle('on',t.dataset.m===m)); $('m-eq').hidden=m!=='eq'; $('m-cu').hidden=m!=='cu'; if(m==='cu'&&!document.querySelector('#heirs .heir')){ heirRow('','1/2'); heirRow('','1/4'); heirRow('','1/4'); } update(); }
+document.querySelectorAll('#bw .tab').forEach(t=>t.addEventListener('click',()=>setMode(t.dataset.m)));
+$('addH').onclick=()=>{heirRow('','');update();};
+['inU','a1','a2','a3','outS','n','rate'].forEach(id=>{$(id).addEventListener('input',()=>{if(id==='inU')setLabels();update();});$(id).addEventListener('change',()=>{if(id==='inU')setLabels();update();});});
+// load from URL
+const q=new URLSearchParams(location.search);
+if(q.get('u')&&(SYS[q.get('u')]||IN[q.get('u')])) $('inU').value=q.get('u');
+['a1','a2','a3'].forEach(k=>{if(q.has(k))$(k).value=q.get(k);});
+if(q.get('o')&&SYS[q.get('o')]) $('outS').value=q.get('o');
+if(q.get('n')) $('n').value=q.get('n');
+if(q.get('r')) $('rate').value=q.get('r');
+if(q.get('h')) q.get('h').split('|').slice(0,15).forEach(s=>{const [nm,sh]=s.split('~'); heirRow(nm,sh);});
+setLabels(); setMode(q.get('m')==='cu'?'cu':'eq');
+})();
+</script>
+
+  <h2>खतौनी में लिखा "अंश" (हिस्सा) कैसे समझें?</h2>
+  <p>जब एक खाते में कई खातेदार हों, तो खतौनी में हर नाम के आगे उसका <strong>अंश</strong> (जैसे 1/2, 1/3, 1/6) लिखा हो सकता है, और खाते का कुल <strong>रकबा हेक्टेयर</strong> में होता है। आपकी ज़मीन = कुल रकबा × आपका अंश। ऊपर "अलग-अलग हिस्से" में सभी खातेदारों के अंश डालें — कैलकुलेटर हर किसी का हिस्सा बीघा-बिस्वा में दिखा देगा और जोड़ 100% है या नहीं, यह भी जाँच देगा। खतौनी देखने का तरीका <a href="/khatauni-kaise-dekhe/">यहाँ</a> है।</p>
+
+  <h2>उदाहरण: 3 भाइयों में 2 बीघा</h2>
+  <p>2 पक्का बीघा = 54,450 वर्ग फुट। तीन बराबर हिस्से = 18,150 वर्ग फुट हर भाई = <strong>13 बिस्वा 6.67 बिस्वांसी</strong> (UP पक्का) = 2,016.67 गज। बिहार के पैमाने में यही <strong>13 कट्ठा 6.67 धुर</strong> होगा।</p>
+
+  <h2>बँटवारे को रिकॉर्ड में कैसे दर्ज कराएँ?</h2>
+  <ul>
+    <li><strong>आपसी सहमति से:</strong> बँटवारे का लेखपत्र (विभाजन पत्र) उप-निबंधक कार्यालय में रजिस्टर कराया जा सकता है — IGRS UP पर <em>125 विभाजन पत्र</em> का मॉडल लेखपत्र उपलब्ध है। ख़र्चे के लिए <a href="/registry-kharcha-process/">रजिस्ट्री गाइड</a> देखें।</li>
+    <li><strong>विवाद होने पर:</strong> राजस्व न्यायालय में बँटवारे का वाद चलता है।</li>
+    <li><strong>पहले वरासत:</strong> अगर ज़मीन अभी भी स्वर्गीय खातेदार के नाम है, तो पहले <a href="/varasat-online-up/">वरासत</a> से सभी वारिसों के नाम दर्ज कराएँ।</li>
+    <li>ज़मीन पर हिस्सों की सीमा तय करनी हो तो सरकारी <a href="/paimaish-online-up/">पैमाइश</a> कराई जा सकती है।</li>
+  </ul>
+  <p class="hint">यह जानकारी सामान्य मार्गदर्शन के लिए है, क़ानूनी सलाह नहीं। अपडेट: 17 नवंबर 2026</p>
+
+  <h2>अक्सर पूछे जाने वाले सवाल</h2>
+  <details>
+    <summary>3 भाइयों में ज़मीन कैसे बाँटें?</summary>
+    <p>कुल ज़मीन को वर्ग फुट में बदलें, 3 से भाग दें और वापस बीघा-बिस्वा में बदलें। जैसे 1 बीघा (27,225 वर्ग फुट) ÷ 3 = 9,075 वर्ग फुट = 6 बिस्वा 13.33 बिस्वांसी (UP पक्का)। ऊपर के कैलकुलेटर में "बराबर हिस्से" चुनकर यह तुरंत होता है।</p>
+  </details>
+  <details>
+    <summary>खतौनी में मेरा हिस्सा (अंश) 1/3 लिखा है, मेरी ज़मीन कितनी है?</summary>
+    <p>खाते के कुल रकबे को आपके अंश से गुणा करें। जैसे रकबा 1.200 हेक्टेयर और अंश 1/3 हो तो आपका हिस्सा 0.400 हेक्टेयर ≈ 1 बीघा 11 बिस्वा 12.6 बिस्वांसी (UP पक्का)। कैलकुलेटर में "अलग-अलग हिस्से" में 1/3 लिखें।</p>
+  </details>
+  <details>
+    <summary>क्या यह कैलकुलेटर बताता है कि क़ानूनन किसका कितना हिस्सा है?</summary>
+    <p>नहीं। यह सिर्फ़ आपके डाले हिस्सों के हिसाब से ज़मीन बाँटता है। क़ानूनी हिस्सा उत्तराधिकार के नियम, वसीयत या आपसी समझौते से तय होता है — इसके लिए तहसील या वकील से सलाह लें।</p>
+  </details>
+  <details>
+    <summary>बँटवारा खतौनी में कैसे दर्ज होता है?</summary>
+    <p>आपसी सहमति से बँटवारे का लेखपत्र (विभाजन पत्र) रजिस्टर कराया जा सकता है — IGRS UP पर इसका मॉडल लेखपत्र "125 विभाजन पत्र" उपलब्ध है। विवाद हो तो राजस्व न्यायालय में बँटवारे का वाद चलता है। प्रक्रिया अपनी तहसील से पूछें।</p>
+  </details>
+  <details>
+    <summary>हिस्सों का जोड़ 100% से कम हो तो?</summary>
+    <p>कैलकुलेटर बची हुई ज़मीन अलग दिखाता है — जैसे किसी हिस्सेदार का नाम छूट गया हो तो तुरंत पता चल जाता है।</p>
+  </details>
+  <h2>दूसरे काम के टूल</h2>
+  <p><a href="/zameen-napo/">ज़मीन नापो (लंबाई-चौड़ाई से बीघा)</a> · <a href="/khatauni-kaise-dekhe/">खतौनी कैसे देखें</a> · <a href="/varasat-online-up/">वरासत</a> · <a href="/bihar-jamabandi-kaise-dekhe/">बिहार जमाबंदी</a> · <a href="/circle-rate-up/">सर्किल रेट</a></p>
+</main>
+<footer class="site">
+  <div class="wrap">यह एक मुफ़्त रेफ़रेंस टूल है। वैल्यू स्टैंडर्ड क्षेत्रीय पैमानों पर आधारित हैं। रजिस्ट्री या कानूनी काम के लिए अपने तहसील/लैंड रिकॉर्ड ऑफ़िस से पुष्टि करें। &copy; Zameen Naplo
+    <div class="legal"><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/privacy-policy/">Privacy Policy</a> · अपडेट: 25 सितंबर 2026</div>
+  </div>
+</footer>
+</body>
+</html>
