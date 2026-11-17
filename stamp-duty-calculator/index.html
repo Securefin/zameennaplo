@@ -16,7 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <title>UP Bihar Stamp Duty Registration Charges Calculator 2026 | Zameen Naplo</title>
-<meta name="description" content="UP aur Bihar me zameen registry ka stamp duty aur registration charge calculate karein. Male, female, joint ownership ke hisaab se turant total kharcha jaanein.">
+<meta name="description" content="UP aur Bihar me registry ka stamp duty aur registration charge calculate karein. UP me gaon (5%) aur shahar (~7%) ke alag rate, mahila chhoot (1 crore tak) ke saath — IGRS calculator se check kiye rates.">
 <link rel="canonical" href="https://zameennaplo.in/stamp-duty-calculator/">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="UP/Bihar Stamp Duty Calculator 2026">
@@ -32,9 +32,9 @@
 <meta name="twitter:image" content="https://zameennaplo.in/assets/og-image.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"UP me stamp duty kitna percent hota hai?","acceptedAnswer":{"@type":"Answer","text":"UP me stamp duty male buyers ke liye 7% aur female buyers ke liye 6% hota hai (mahila chhoot sirf 1 crore tak ki property par). Joint (male-female) ownership ke liye yahan lagbhag 6.5% maana gaya hai. Registration charge sabke liye 1% alag se lagta hai."}},
+{"@type":"Question","name":"UP me stamp duty kitna percent hota hai?","acceptedAnswer":{"@type":"Answer","text":"UP me stamp duty ilake par nirbhar hai: gramin (gaon) me 5% aur shahri / vikas kshetra me 6.86% (lagbhag 7%). Mahila kharidar ko 1 crore tak ki property par lagbhag 1% kam lagta hai (gaon me 4%, shahar me 5.88%). Registration fee 1% alag se lagti hai."}},
 {"@type":"Question","name":"Bihar me stamp duty kitna percent hota hai?","acceptedAnswer":{"@type":"Answer","text":"Bihar me stamp duty male buyers ke liye 6.3%, female buyers ke liye 5.7%, aur joint ownership ke liye lagbhag 6% hota hai. Registration charge alag se 2% lagta hai."}},
-{"@type":"Question","name":"50 lakh ki property par UP me kitna stamp duty lagega?","acceptedAnswer":{"@type":"Answer","text":"50 lakh ki property par UP me male buyer ko 7% stamp duty (3.5 lakh) + 1% registration (50,000) = kul 4 lakh rupaye lagenge. Female buyer ko 6% stamp duty (3 lakh) + 1% registration (50,000) = kul 3.5 lakh rupaye lagenge."}},
+{"@type":"Question","name":"50 lakh ki property par UP me kitna stamp duty lagega?","acceptedAnswer":{"@type":"Answer","text":"50 lakh ki property par UP ke shahri ilake me male buyer ko 3.43 lakh stamp duty + 50,000 registration = 3.93 lakh lagenge, aur female buyer ko 2.94 lakh + 50,000 = 3.44 lakh. Gaon me male ko 2.5 lakh + 50,000 = 3 lakh aur female ko 2 lakh + 50,000 = 2.5 lakh lagenge (IGRS calculator ke hisaab se)."}},
 {"@type":"Question","name":"Kya stamp duty circle rate par lagta hai ya sale price par?","acceptedAnswer":{"@type":"Answer","text":"Stamp duty hamesha circle rate (sarkari guidance value) aur actual sale price, in dono me se jo zyada ho, uspar calculate hota hai. Agar aap circle rate se kam par bhi kharidte hain, to stamp duty circle rate par hi lagega."}}
 ]}
 </script>
@@ -102,6 +102,8 @@ footer.site nav{margin-top:12px;line-height:1.9}footer.site nav a{color:#4f46e5;
 <div><label for="state">State</label><select id="state"><option value="up" selected>Uttar Pradesh</option><option value="bihar">Bihar</option></select></div>
 <div><label for="buyer">Buyer Type</label><select id="buyer"><option value="male">Male</option><option value="female">Female</option><option value="joint">Joint (M+F)</option></select></div>
 </div>
+<div class="field" id="areaRow"><label for="area">Ilaka (UP)</label><select id="area"><option value="urban">Shahri / Nagar / Vikas kshetra</option><option value="rural">Gramin (gaon)</option></select></div>
+<p class="note" id="jointNote" style="display:none">UP me Joint (purush + mahila) kharid par exact chhoot IGRS calculator se confirm karein — yahan poora (bina chhoot) rate dikhaya gaya hai.</p>
 <div class="result">
 <div class="rsub">Total Stamp Duty + Registration</div>
 <div class="rmain" id="total">&mdash;</div>
@@ -111,26 +113,31 @@ footer.site nav{margin-top:12px;line-height:1.9}footer.site nav a{color:#4f46e5;
 
 <h2>UP aur Bihar Stamp Duty Rates (2026)</h2>
 <div class="tablewrap"><table>
-<thead><tr><th>State</th><th>Male</th><th>Female</th><th>Joint</th><th>Registration</th></tr></thead>
+<thead><tr><th>State / Ilaka</th><th>Male</th><th>Female</th><th>Joint</th><th>Registration</th></tr></thead>
 <tbody>
-<tr><td>Uttar Pradesh</td><td>7%</td><td>6%</td><td>6.5%</td><td>1%</td></tr>
+<tr><td>UP — Shahri / Vikas kshetra</td><td>6.86% (~7%)</td><td>5.88%*</td><td>IGRS se confirm</td><td>1%</td></tr>
+<tr><td>UP — Gramin</td><td>5%</td><td>4%*</td><td>IGRS se confirm</td><td>1%</td></tr>
 <tr><td>Bihar</td><td>6.3%</td><td>5.7%</td><td>~6%</td><td>2%</td></tr>
 </tbody></table></div>
+<p class="note">* UP me mahila chhoot sirf &#8377;1 crore tak ki property par. UP rates IGRS UP ke official stamp-nibandhan shulk calculator se 17 Nov 2026 ko check kiye (Lucknow aur Varanasi ke shahri aur gramin ilakon me). Aapke mohalle/gaon ka exact rate <a href="https://igrsup.gov.in/igrsup/stampFeesCalculator" rel="nofollow noopener" target="_blank">IGRS calculator</a> par dekhein.</p>
+
+<h2>UP Me Stamp Duty Ilake Ke Hisaab Se Kyun Alag Hai</h2>
+<p>UP me stamp duty har jagah ek jaisa nahi hai. IGRS ke official calculator me <strong>gramin ilakon (gaon)</strong> ke liye sale deed par <strong>5%</strong> aur <strong>shahri / vikas kshetra</strong> ke mohallon ke liye <strong>6.86%</strong> (lagbhag 7%) stamp duty aati hai. Mahila kharidar ko &#8377;1 crore tak ki property par lagbhag 1% kam lagta hai — gaon me 4%, shahar me 5.88%. Registration fee dono jagah <strong>1%</strong> hai. Isliye registry se pehle apna ilaka zaroor chunein.</p>
 
 <h2>Stamp Duty Kya Hota Hai Aur Kaise Calculate Hota Hai</h2>
 <p>Stamp duty ek sarkari tax hai jo property registry ke waqt lagta hai. Formula seedha hai: <strong>Stamp Duty = Property Value &times; State ka Rate (%)</strong>. Iske upar <strong>Registration Charge</strong> alag se lagta hai (UP me 1%, Bihar me 2%). Dono milkar total registry kharcha banate hain.</p>
 <p>Zaroori baat — stamp duty hamesha <strong>circle rate (sarkari guidance value) aur actual sale price</strong>, in dono me se jo zyada ho, uspar calculate hota hai. Agar aap circle rate se kam price par bhi deal karte hain, stamp duty circle rate par hi lagega.</p>
 
 <h2>Female Buyers Ko Kitni Chhoot Milti Hai</h2>
-<p>UP aur Bihar dono states me <strong>female buyers ko kam stamp duty rate</strong> milta hai — UP me 1% kam (7% se 6%, sirf &#8377;1 crore tak ki property par), Bihar me 0.6% kam (6.3% se 5.7%). 50 lakh ki property par UP me ye lagbhag <strong>50,000 rupaye ki bachat</strong> hai. July 2025 me UP cabinet ne ye chhoot ki limit &#8377;10 lakh se badha kar &#8377;1 crore kar di. &#8377;1 crore se upar ki property par female buyer ko bhi poora 7% lagta hai — calculator ye automatically handle karta hai.</p>
+<p>UP aur Bihar dono states me <strong>female buyers ko kam stamp duty rate</strong> milta hai — UP me lagbhag 1% kam (gaon me 5% se 4%, shahar me 6.86% se 5.88%), sirf &#8377;1 crore tak ki property par. Bihar me 0.6% kam (6.3% se 5.7%). July 2025 me UP cabinet ne ye chhoot ki limit &#8377;10 lakh se badha kar &#8377;1 crore kar di. &#8377;1 crore se upar female buyer ko bhi poora rate lagta hai — calculator ye automatically handle karta hai.</p>
 
 <h2>Registry Ke Aur Kharche</h2>
 <p>Stamp duty aur registration ke alawa registry me kuch chhote extra kharche bhi hote hain — dastavez (documentation) fee, vakil/lawyer charges, aur kabhi-kabhi mutation (dakhil-kharij) fee. Ye is calculator me shaamil nahi hain, lagbhag &#8377;5,000&ndash;15,000 extra maan ke chaliye.</p>
 
 <h2>Frequently Asked Questions</h2>
-<details><summary>UP me stamp duty kitna percent hota hai?</summary><p>UP me stamp duty male buyers ke liye 7% aur female buyers ke liye 6% hota hai (mahila chhoot sirf 1 crore tak ki property par). Joint (male-female) ownership ke liye yahan lagbhag 6.5% maana gaya hai. Registration charge sabke liye 1% alag se lagta hai.</p></details>
+<details><summary>UP me stamp duty kitna percent hota hai?</summary><p>UP me stamp duty ilake par nirbhar hai: gramin (gaon) me 5% aur shahri / vikas kshetra me 6.86% (lagbhag 7%). Mahila kharidar ko 1 crore tak ki property par lagbhag 1% kam lagta hai (gaon me 4%, shahar me 5.88%). Registration fee 1% alag se lagti hai.</p></details>
 <details><summary>Bihar me stamp duty kitna percent hota hai?</summary><p>Bihar me stamp duty male buyers ke liye 6.3%, female buyers ke liye 5.7%, aur joint ownership ke liye lagbhag 6% hota hai. Registration charge alag se 2% lagta hai.</p></details>
-<details><summary>50 lakh ki property par UP me kitna stamp duty lagega?</summary><p>50 lakh ki property par UP me male buyer ko 7% stamp duty (3.5 lakh) + 1% registration (50,000) = kul 4 lakh rupaye lagenge. Female buyer ko 6% stamp duty (3 lakh) + 1% registration (50,000) = kul 3.5 lakh rupaye lagenge.</p></details>
+<details><summary>50 lakh ki property par UP me kitna stamp duty lagega?</summary><p>50 lakh ki property par UP ke shahri ilake me male buyer ko 3.43 lakh stamp duty + 50,000 registration = 3.93 lakh lagenge, aur female buyer ko 2.94 lakh + 50,000 = 3.44 lakh. Gaon me male ko 2.5 lakh + 50,000 = 3 lakh aur female ko 2 lakh + 50,000 = 2.5 lakh lagenge (IGRS calculator ke hisaab se).</p></details>
 <details><summary>Kya stamp duty circle rate par lagta hai ya sale price par?</summary><p>Stamp duty hamesha circle rate (sarkari guidance value) aur actual sale price, in dono me se jo zyada ho, uspar calculate hota hai. Agar aap circle rate se kam par bhi kharidte hain, to stamp duty circle rate par hi lagega.</p></details>
 
 <div class="note">Rates 2026 ke public government notifications par based hain. Exact/latest rate apne Sub-Registrar office ya IGRS UP / Bhumijankari Bihar portal se confirm karein.</div>
@@ -144,14 +151,16 @@ footer.site nav{margin-top:12px;line-height:1.9}footer.site nav a{color:#4f46e5;
 </main>
 <footer class="site"><div class="wrap">Ye ek estimate tool hai. Exact charges ke liye Sub-Registrar office se confirm karein. &copy; Zameen Naplo
     <nav aria-label="Sabhi tools"><strong>Sabhi tools:</strong> <a href="/">All-in-one Converter</a> · <a href="/zameen-napo/">Zameen Napo (Lambai-Chaudai se Bigha)</a> · <a href="/khatauni-kaise-dekhe/">Khatauni Kaise Dekhe (UP Bhulekh)</a> · <a href="/dakhil-kharij-status/">Dakhil Kharij Status (UP, Bihar)</a> · <a href="/bigha-to-gaj-up/">Bigha to Gaj (UP)</a> · <a href="/biswa-to-sqft-up/">Biswa to Sq Ft (UP)</a> · <a href="/bigha-to-sqft-bihar/">Bigha to Sq Ft (Bihar)</a> · <a href="/katha-to-sqft-bihar/">Katha to Sq Ft (Bihar)</a> · <a href="/dhur-to-sqft-bihar/">Dhur to Sq Ft (Bihar)</a> · <a href="/marla-to-sqft-punjab/">Marla to Sq Ft (Punjab)</a> · <a href="/kanal-to-marla/">Kanal to Marla</a> · <a href="/guntha-to-sqft/">Guntha to Sq Ft</a> · <a href="/bigha-to-acre/">Bigha to Acre</a> · <a href="/gaj-to-sqft/">Gaj to Sq Ft</a> · <a href="/gaj-plot-size/">Gaj Plot Size</a> · <a href="/ghar-banane-ka-kharcha/">Ghar Banane Ka Kharcha</a> · <a href="/loan-emi-calculator/">Plot Loan EMI Calculator</a></nav>
-    <div class="legal"><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/privacy-policy/">Privacy Policy</a> · Last updated: 25 Sep 2026</div>
+    <div class="legal"><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/privacy-policy/">Privacy Policy</a> · Last updated: 17 Nov 2026</div>
   </div></footer>
 <script>
 var rates={
- up:{male:0.07,female:0.06,joint:0.065,reg:0.01},
+ // UP: IGRS e-calculator (17 Nov 2026) — shahri/vikas kshetra vs gramin
+ up_urban:{male:0.0686,female:0.0588,joint:0.0686,reg:0.01},
+ up_rural:{male:0.05,female:0.04,joint:0.05,reg:0.01},
  bihar:{male:0.063,female:0.057,joint:0.06,reg:0.02}
 };
-var valEl=document.getElementById('val'),stateEl=document.getElementById('state'),buyerEl=document.getElementById('buyer');
+var valEl=document.getElementById('val'),stateEl=document.getElementById('state'),buyerEl=document.getElementById('buyer'),areaEl=document.getElementById('area');
 function inr(n){
  if(n>=10000000)return '\u20b9'+(n/10000000).toFixed(2)+' Cr';
  if(n>=100000)return '\u20b9'+(n/100000).toFixed(2)+' Lakh';
@@ -160,16 +169,19 @@ function inr(n){
 function calc(){
  var v=parseFloat(valEl.value);
  if(isNaN(v)||v<=0){document.getElementById('total').textContent='\u2014';document.getElementById('breakup').innerHTML='';return;}
- var st=rates[stateEl.value], sdRate=st[buyerEl.value], regRate=st.reg;
+ var isUP=stateEl.value==='up';
+ document.getElementById('areaRow').style.display=isUP?'':'none';
+ document.getElementById('jointNote').style.display=(isUP&&buyerEl.value==='joint')?'':'none';
+ var st=isUP?rates['up_'+areaEl.value]:rates[stateEl.value], sdRate=st[buyerEl.value], regRate=st.reg;
  // UP: mahila chhoot (1%) sirf ₹1 crore tak ki property par (July 2025 cabinet decision)
- if(stateEl.value==='up'&&buyerEl.value!=='male'&&v>10000000){sdRate=st.male;}
+ if(isUP&&buyerEl.value!=='male'&&v>10000000){sdRate=st.male;}
  var sd=v*sdRate, reg=v*regRate, total=sd+reg;
  document.getElementById('total').textContent=inr(total);
- var html='<div class="bar"><div class="lbl">Stamp Duty ('+(sdRate*100).toFixed(1)+'%)</div><div class="track"><div class="fill" style="width:'+(sd/total*100)+'%"></div></div><div class="amt">'+inr(sd)+'</div></div>'+
+ var html='<div class="bar"><div class="lbl">Stamp Duty ('+(+(sdRate*100).toFixed(2))+'%)</div><div class="track"><div class="fill" style="width:'+(sd/total*100)+'%"></div></div><div class="amt">'+inr(sd)+'</div></div>'+
  '<div class="bar"><div class="lbl">Registration ('+(regRate*100).toFixed(1)+'%)</div><div class="track"><div class="fill" style="width:'+(reg/total*100)+'%;background:#0891b2"></div></div><div class="amt">'+inr(reg)+'</div></div>';
  document.getElementById('breakup').innerHTML=html;
 }
-[valEl,stateEl,buyerEl].forEach(function(e){e.addEventListener('input',calc);e.addEventListener('change',calc);});
+[valEl,stateEl,buyerEl,areaEl].forEach(function(e){e.addEventListener('input',calc);e.addEventListener('change',calc);});
 calc();
 </script>
 </body>
