@@ -123,249 +123,337 @@
     @media (prefers-reduced-motion: reduce) {
       .faq-answer, .faq-icon { transition: none; }
     }
-    :focus-visible { outline: 2px solid #4f46e5; outline-offset: 2px; }
+    :focus-visible { outline: 2px solid #15803d; outline-offset: 2px; }
   </style>
 </head>
 
-<body class="bg-slate-100 text-slate-800 antialiased">
+<body class="bg-[#faf7f0] text-stone-800 antialiased">
 
-  <!-- ===== HEADER ===== -->
-  <header class="max-w-2xl mx-auto px-4 pt-8 pb-2 text-center">
-    <p class="text-sm font-bold uppercase tracking-wider text-indigo-600">Zameen Naplo</p>
-    <h1 class="mt-1 text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
-      Bigha, Gaj, Marla Land Area Converter
-    </h1>
-    <p class="mt-1 text-sm sm:text-base text-slate-600 font-medium">
-      Bigha, Gaj, Marla, Katha, Guntha &amp; Acre — State-wise Instant Calculator
-    </p>
+  <!-- ===== SITE HEADER ===== -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-2.5 shrink-0" aria-label="Zameen Naplo होम">
+        <svg class="h-9 w-9" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#14532d"/><path d="M7 25 L18 9 L29 25 Z" fill="none" stroke="#fbbf24" stroke-width="2.4" stroke-linejoin="round"/><path d="M7 25h22" stroke="#86efac" stroke-width="2.4" stroke-linecap="round"/><path d="M12.5 25 18 17l5.5 8" fill="none" stroke="#86efac" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <span class="leading-tight"><span class="block text-lg font-extrabold text-green-900 tracking-tight">Zameen Naplo</span><span class="block text-[11px] font-semibold text-amber-700">ज़मीन का हर हिसाब</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-[15px] font-semibold text-stone-700" aria-label="मुख्य मेन्यू">
+        <a class="hover:text-green-800" href="#tools">कैलकुलेटर</a>
+        <a class="hover:text-green-800" href="#guides">सरकारी पोर्टल गाइड</a>
+        <a class="hover:text-green-800" href="#converters">यूनिट कन्वर्टर</a>
+      </nav>
+      <a href="/registry-kharcha-calculator/" class="inline-flex items-center rounded-full bg-amber-400 hover:bg-amber-300 text-green-950 text-sm font-bold px-4 py-2 transition">रजिस्ट्री ख़र्चा</a>
+    </div>
   </header>
 
-  <!-- ===== CALCULATOR CARD ===== -->
-  <main class="max-w-2xl mx-auto px-4 pb-12">
-    <a href="/zameen-napo/" class="block mt-4 rounded-2xl bg-emerald-700 hover:bg-emerald-800 text-white p-5 shadow-lg transition">
-      <span class="block text-xs font-bold uppercase tracking-wider text-emerald-100">नया · ज़मीन नापो</span>
-      <span class="block mt-1 text-xl font-extrabold">लंबाई-चौड़ाई से बीघा-बिस्वा निकालें &rarr;</span>
-      <span class="block mt-1 text-sm text-emerald-50">टेढ़ा खेत, त्रिकोण, क़ीमत और बँटवारा — सब एक जगह</span>
-    </a>
-    <section class="bg-white rounded-2xl shadow-xl shadow-slate-200/60 ring-1 ring-slate-100 p-5 sm:p-7 mt-4">
-
-      <!-- State selector with dynamic trust badge -->
-      <div class="flex items-center justify-between mb-2">
-        <label for="stateSelect" class="text-sm font-semibold text-slate-700">
-          State chunein
-        </label>
-        <span id="stateBadge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100 uppercase tracking-wider">
-          UP Active
-        </span>
-      </div>
-      <select id="stateSelect"
-        class="w-full h-14 px-4 rounded-xl bg-slate-50 border border-slate-200 text-base font-medium text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition">
-      </select>
-
-      <!-- Value input -->
-      <label for="valueInput" class="block text-sm font-semibold text-slate-700 mt-5 mb-2">
-        Value daalein
-      </label>
-      <input id="valueInput" type="number" inputmode="decimal" min="0" step="any" value="1"
-        placeholder="e.g. 1"
-        class="w-full h-14 px-4 rounded-xl bg-slate-50 border border-slate-200 text-lg font-semibold text-slate-900 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" />
-
-      <!-- From / To -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
-        <div>
-          <label for="fromSelect" class="block text-sm font-semibold text-slate-700 mb-2">Convert From</label>
-          <select id="fromSelect"
-            class="w-full h-14 px-4 rounded-xl bg-slate-50 border border-slate-200 text-base font-medium text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition"></select>
-        </div>
-        <div>
-          <label for="toSelect" class="block text-sm font-semibold text-slate-700 mb-2">Convert To</label>
-          <select id="toSelect"
-            class="w-full h-14 px-4 rounded-xl bg-slate-50 border border-slate-200 text-base font-medium text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition"></select>
+  <!-- ===== HERO + CONVERTER ===== -->
+  <section class="relative overflow-hidden bg-green-900 text-white">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:44px 44px" aria-hidden="true"></div>
+    <div class="relative max-w-6xl mx-auto px-4 pt-8 pb-10 md:py-14 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+      <div>
+        <p class="inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/20 px-3 py-1 text-xs font-semibold text-green-100">UP · बिहार · पंजाब · हरियाणा · बंगाल · महाराष्ट्र</p>
+        <p class="mt-4 text-lg sm:text-xl font-bold text-amber-300">ज़मीन नापने का हर हिसाब, एक जगह</p>
+        <h1 class="mt-1 text-3xl sm:text-5xl font-black tracking-tight leading-[1.1]">Bigha, Gaj, Marla Land Area Converter</h1>
+        <p class="mt-4 text-base sm:text-lg text-green-50/90 max-w-xl">Bigha, Biswa, Gaj, Marla, Katha, Guntha और Acre — राज्य के हिसाब से सही वैल्यू पर तुरंत बदलें। साथ में रजिस्ट्री ख़र्चा, बँटवारा और सरकारी पोर्टल की आसान गाइड।</p>
+        <ul class="mt-5 hidden sm:grid gap-2 text-sm text-green-50">
+          <li class="flex gap-2"><span class="text-amber-300 font-black">✓</span> हर राज्य का अलग पैमाना (पक्का/कच्चा बीघा भी)</li>
+          <li class="flex gap-2"><span class="text-amber-300 font-black">✓</span> गाइड आधिकारिक पोर्टल पर ख़ुद जाँचकर, स्क्रीनशॉट के साथ</li>
+          <li class="flex gap-2"><span class="text-amber-300 font-black">✓</span> पूरी तरह मुफ़्त — कोई लॉगिन नहीं</li>
+        </ul>
+        <div class="mt-6 hidden md:flex flex-wrap gap-2 text-sm">
+          <a class="rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/20 px-3 py-1.5" href="/bigha-to-gaj-up/">1 बीघा = 3,025 गज</a>
+          <a class="rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/20 px-3 py-1.5" href="/hi/biswa-to-sqft-up/">1 बिस्वा = 1,361 sq ft</a>
+          <a class="rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/20 px-3 py-1.5" href="/kanal-to-marla/">1 कनाल = 20 मरला</a>
         </div>
       </div>
 
-      <!-- Swap + Calculate -->
-      <div class="flex items-center gap-3 mt-5">
-        <button id="swapBtn" type="button" aria-label="Units swap karein"
-          class="h-14 w-14 shrink-0 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition active:scale-95">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
-          </svg>
-        </button>
-        <button id="calcBtn" type="button"
-          class="h-14 flex-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-base font-bold tracking-wide shadow-lg shadow-indigo-600/30 transition active:scale-[0.99]">
-          Calculate Now
-        </button>
-      </div>
+      <section class="bg-white text-stone-800 rounded-3xl shadow-2xl shadow-black/30 ring-1 ring-black/5 p-5 sm:p-7" aria-label="Land area converter">
+        <div class="flex items-center justify-between mb-2">
+          <label for="stateSelect" class="text-sm font-semibold text-stone-700">State chunein</label>
+          <span id="stateBadge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-green-50 text-green-800 border border-green-200 uppercase tracking-wider">UP Active</span>
+        </div>
+        <select id="stateSelect" class="w-full h-13 h-[52px] px-4 rounded-xl bg-stone-50 border border-stone-200 text-base font-medium text-stone-800 focus:border-green-600 focus:ring-2 focus:ring-green-200 focus:outline-none transition"></select>
 
-      <!-- ===== RESULT BOX ===== -->
-      <div id="resultBox" class="mt-6 rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-700 p-6 text-center text-white shadow-lg shadow-indigo-600/30">
-        <p id="resultLabel" class="text-sm font-medium text-indigo-200">Result</p>
-        <p id="resultValue" class="mt-1 text-3xl sm:text-4xl font-extrabold tracking-tight break-words">—</p>
-        <p id="resultUnit" class="mt-1 text-base font-semibold text-indigo-100"></p>
-        <p id="resultEquation" class="mt-3 text-xs text-indigo-200/90"></p>
-        
-        <!-- WhatsApp Share Button Loop (Viral Element) -->
-        <button id="whatsappBtn" type="button" class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-lg transition shadow-md active:scale-95">
-          <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.79-3.514c1.6.95 3.515 1.453 5.501 1.454 5.551 0 10.068-4.447 10.071-9.919.002-2.65-1.03-5.14-2.903-7.016C17.545 3.129 15.06 2.1 12.42 2.1 6.864 2.1 2.346 6.548 2.343 12.02c-.001 1.905.498 3.766 1.446 5.394l-.946 3.454 3.554-.932z"/>
-          </svg>
-          WhatsApp Par Share Karein
-        </button>
-      </div>
+        <label for="valueInput" class="block text-sm font-semibold text-stone-700 mt-4 mb-2">Value daalein</label>
+        <input id="valueInput" type="number" inputmode="decimal" min="0" step="any" value="1" placeholder="e.g. 1"
+          class="w-full h-[52px] px-4 rounded-xl bg-stone-50 border border-stone-200 text-lg font-semibold text-stone-900 focus:border-green-600 focus:ring-2 focus:ring-green-200 focus:outline-none transition" />
 
-      <p class="mt-4 text-[11px] leading-relaxed text-slate-600 text-center">
-        Note: Regional units (Bigha, Biswa, Katha, etc.) area ki value district aur tehsil ke hisaab se thodi alag ho sakti hai. Yeh standard reference values hain — final sauda/registry ke liye apne local land record office se confirm karein.
-      </p>
+        <div class="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-2 items-end mt-4">
+          <div>
+            <label for="fromSelect" class="block text-sm font-semibold text-stone-700 mb-2">Convert From</label>
+            <select id="fromSelect" class="w-full h-[52px] px-3 rounded-xl bg-stone-50 border border-stone-200 text-[15px] font-medium text-stone-800 focus:border-green-600 focus:ring-2 focus:ring-green-200 focus:outline-none transition"></select>
+          </div>
+          <button id="swapBtn" type="button" aria-label="Units swap karein"
+            class="h-10 w-full sm:h-[52px] sm:w-11 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-800 flex items-center justify-center transition active:scale-95">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" /></svg>
+          </button>
+          <div>
+            <label for="toSelect" class="block text-sm font-semibold text-stone-700 mb-2">Convert To</label>
+            <select id="toSelect" class="w-full h-[52px] px-3 rounded-xl bg-stone-50 border border-stone-200 text-[15px] font-medium text-stone-800 focus:border-green-600 focus:ring-2 focus:ring-green-200 focus:outline-none transition"></select>
+          </div>
+        </div>
+
+        <button id="calcBtn" type="button" class="mt-4 h-[52px] w-full rounded-xl bg-green-800 hover:bg-green-900 text-white text-base font-bold tracking-wide shadow-lg shadow-green-900/25 transition active:scale-[0.99]">Calculate Now</button>
+
+        <div id="resultBox" class="mt-4 rounded-2xl bg-amber-50 ring-1 ring-amber-200 p-5 text-center">
+          <p id="resultLabel" class="text-xs font-bold uppercase tracking-wider text-amber-800">Result</p>
+          <p id="resultValue" class="mt-1 text-3xl sm:text-4xl font-black tracking-tight text-green-900 break-words">—</p>
+          <p id="resultUnit" class="mt-0.5 text-base font-semibold text-stone-700"></p>
+          <p id="resultEquation" class="mt-2 text-xs text-stone-600"></p>
+          <button id="whatsappBtn" type="button" class="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-[#128c4a] hover:bg-[#0f7a40] text-white text-xs font-bold rounded-lg transition shadow-md active:scale-95">
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.79-3.514c1.6.95 3.515 1.453 5.501 1.454 5.551 0 10.068-4.447 10.071-9.919.002-2.65-1.03-5.14-2.903-7.016C17.545 3.129 15.06 2.1 12.42 2.1 6.864 2.1 2.346 6.548 2.343 12.02c-.001 1.905.498 3.766 1.446 5.394l-.946 3.454 3.554-.932z"/></svg>
+            WhatsApp Par Share Karein
+          </button>
+        </div>
+        <p class="mt-3 text-[11px] leading-relaxed text-stone-500 text-center">Regional units (Bigha, Biswa, Katha) की वैल्यू ज़िले/तहसील के हिसाब से थोड़ी अलग हो सकती है। रजिस्ट्री/सौदे के लिए अपने भू-अभिलेख कार्यालय से पुष्टि करें।</p>
+      </section>
+    </div>
+  </section>
+
+  <main>
+    <!-- ===== CALCULATORS ===== -->
+    <section id="tools" class="max-w-6xl mx-auto px-4 pt-12 scroll-mt-20">
+      <p class="text-sm font-bold uppercase tracking-wider text-amber-700">कैलकुलेटर</p>
+      <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-green-950">ज़मीन के काम के कैलकुलेटर</h2>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="/zameen-napo/" class="group relative flex gap-4 rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 hover:shadow-lg hover:shadow-green-900/5 p-5 transition">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-2xl" aria-hidden="true">📐</span>
+          <span><span class="block font-bold text-stone-900 group-hover:text-green-800">ज़मीन नापो</span><span class="mt-1 block text-sm text-stone-600">लंबाई-चौड़ाई से बीघा-बिस्वा — टेढ़ा खेत, त्रिकोण भी</span></span>
+        </a>
+        <a href="/registry-kharcha-calculator/" class="group relative flex gap-4 rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 hover:shadow-lg hover:shadow-green-900/5 p-5 transition">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-2xl" aria-hidden="true">🧾</span>
+          <span><span class="block font-bold text-stone-900 group-hover:text-green-800">रजिस्ट्री ख़र्चा कैलकुलेटर <span class="ml-1 align-middle rounded-full bg-amber-400 px-2 py-0.5 text-[11px] font-bold text-green-950">नया</span></span><span class="mt-1 block text-sm text-stone-600">बीघा/गज और रेट डालें — स्टाम्प, फीस और कुल ख़र्चा</span></span>
+        </a>
+        <a href="/zameen-batwara-calculator/" class="group relative flex gap-4 rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 hover:shadow-lg hover:shadow-green-900/5 p-5 transition">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-2xl" aria-hidden="true">⚖️</span>
+          <span><span class="block font-bold text-stone-900 group-hover:text-green-800">ज़मीन बँटवारा</span><span class="mt-1 block text-sm text-stone-600">भाइयों/वारिसों में हिस्सा — बीघा-बिस्वा में</span></span>
+        </a>
+        <a href="/stamp-duty-calculator/" class="group relative flex gap-4 rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 hover:shadow-lg hover:shadow-green-900/5 p-5 transition">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-2xl" aria-hidden="true">🏛️</span>
+          <span><span class="block font-bold text-stone-900 group-hover:text-green-800">Stamp Duty Calculator</span><span class="mt-1 block text-sm text-stone-600">UP और बिहार — गाँव/शहर, महिला छूट के साथ</span></span>
+        </a>
+        <a href="/ghar-banane-ka-kharcha/" class="group relative flex gap-4 rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 hover:shadow-lg hover:shadow-green-900/5 p-5 transition">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-2xl" aria-hidden="true">🏠</span>
+          <span><span class="block font-bold text-stone-900 group-hover:text-green-800">घर बनाने का ख़र्चा</span><span class="mt-1 block text-sm text-stone-600">प्लॉट के साइज़ से निर्माण का अनुमान</span></span>
+        </a>
+        <a href="/loan-emi-calculator/" class="group relative flex gap-4 rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 hover:shadow-lg hover:shadow-green-900/5 p-5 transition">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-2xl" aria-hidden="true">💰</span>
+          <span><span class="block font-bold text-stone-900 group-hover:text-green-800">प्लॉट / ज़मीन लोन EMI</span><span class="mt-1 block text-sm text-stone-600">लोन की किस्त और कुल ब्याज</span></span>
+        </a>
+      </div>
     </section>
 
-    <!-- ===== SEO CONTENT SECTION ===== -->
-    <article class="mt-10 bg-white rounded-2xl shadow-sm ring-1 ring-slate-100 p-6 sm:p-8 prose-slate">
-      <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Indian Land Area Conversion Rules Kya Hain?</h2>
-      <p class="mt-3 text-[15px] leading-relaxed text-slate-600">
+    <!-- ===== GUIDES ===== -->
+    <section id="guides" class="max-w-6xl mx-auto px-4 pt-14 scroll-mt-20">
+      <p class="text-sm font-bold uppercase tracking-wider text-amber-700">सरकारी पोर्टल गाइड</p>
+      <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-green-950">खतौनी, नक्शा, दाखिल-ख़ारिज — कहाँ क्लिक करें, तस्वीरों के साथ</h2>
+      <p class="mt-2 text-stone-600 max-w-3xl">हर गाइड आधिकारिक वेबसाइट पर ख़ुद जाँचकर लिखी गई है। 📷 वाली गाइड में पोर्टल के असली स्क्रीनशॉट पर लाल निशान से बताया है कि कहाँ क्लिक करना है।</p>
+      <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <a href="/khatauni-kaise-dekhe/" class="group rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 p-4 transition">
+          <span class="flex items-center justify-between gap-2"><span class="font-bold text-stone-900 group-hover:text-green-800">खतौनी कैसे देखें</span><span class="shrink-0 rounded-full bg-amber-50 ring-1 ring-amber-200 px-2 py-0.5 text-[11px] font-semibold text-amber-800">📷 फ़ोटो</span></span>
+          <span class="mt-1 block text-sm text-stone-600">UP भूलेख पर नक़ल →</span>
+        </a>
+        <a href="/bhu-naksha-up/" class="group rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 p-4 transition">
+          <span class="flex items-center justify-between gap-2"><span class="font-bold text-stone-900 group-hover:text-green-800">भू-नक्शा UP</span><span class="shrink-0 rounded-full bg-amber-50 ring-1 ring-amber-200 px-2 py-0.5 text-[11px] font-semibold text-amber-800">📷 फ़ोटो</span></span>
+          <span class="mt-1 block text-sm text-stone-600">गाटा संख्या से खेत का नक्शा →</span>
+        </a>
+        <a href="/dakhil-kharij-status/" class="group rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 p-4 transition">
+          <span class="flex items-center justify-between gap-2"><span class="font-bold text-stone-900 group-hover:text-green-800">दाखिल-ख़ारिज स्टेटस</span><span class="shrink-0 rounded-full bg-amber-50 ring-1 ring-amber-200 px-2 py-0.5 text-[11px] font-semibold text-amber-800">📷 फ़ोटो</span></span>
+          <span class="mt-1 block text-sm text-stone-600">UP और बिहार →</span>
+        </a>
+        <a href="/varasat-online-up/" class="group rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 p-4 transition">
+          <span class="flex items-center justify-between gap-2"><span class="font-bold text-stone-900 group-hover:text-green-800">वरासत ऑनलाइन</span><span class="shrink-0 rounded-full bg-amber-50 ring-1 ring-amber-200 px-2 py-0.5 text-[11px] font-semibold text-amber-800">📷 फ़ोटो</span></span>
+          <span class="mt-1 block text-sm text-stone-600">वारिसों का नाम चढ़वाएँ →</span>
+        </a>
+        <a href="/paimaish-online-up/" class="group rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 p-4 transition">
+          <span class="flex items-center justify-between gap-2"><span class="font-bold text-stone-900 group-hover:text-green-800">ज़मीन की पैमाइश</span><span class="shrink-0 rounded-full bg-amber-50 ring-1 ring-amber-200 px-2 py-0.5 text-[11px] font-semibold text-amber-800">📷 फ़ोटो</span></span>
+          <span class="mt-1 block text-sm text-stone-600">धारा 24 में आवेदन →</span>
+        </a>
+        <a href="/circle-rate-up/" class="group rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 p-4 transition">
+          <span class="flex items-center justify-between gap-2"><span class="font-bold text-stone-900 group-hover:text-green-800">सर्किल रेट UP</span></span>
+          <span class="mt-1 block text-sm text-stone-600">मूल्यांकन सूची कैसे देखें →</span>
+        </a>
+        <a href="/registry-kharcha-process/" class="group rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 p-4 transition">
+          <span class="flex items-center justify-between gap-2"><span class="font-bold text-stone-900 group-hover:text-green-800">रजिस्ट्री प्रोसेस</span></span>
+          <span class="mt-1 block text-sm text-stone-600">ख़र्चा और स्टेप (UP) →</span>
+        </a>
+        <a href="/bihar-jamabandi-kaise-dekhe/" class="group rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-green-700 p-4 transition">
+          <span class="flex items-center justify-between gap-2"><span class="font-bold text-stone-900 group-hover:text-green-800">बिहार जमाबंदी</span></span>
+          <span class="mt-1 block text-sm text-stone-600">ऑनलाइन जमाबंदी देखें →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== CONVERTERS ===== -->
+    <section id="converters" class="max-w-6xl mx-auto px-4 pt-14 scroll-mt-20">
+      <p class="text-sm font-bold uppercase tracking-wider text-amber-700">यूनिट कन्वर्टर</p>
+      <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-green-950">Popular Land Unit Converters</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <div class="rounded-2xl bg-white ring-1 ring-stone-200 p-5">
+          <h3 class="font-bold text-stone-900">English / Hinglish</h3>
+          <ul class="mt-3 flex flex-wrap gap-2">
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/bigha-to-gaj-up/">Bigha to Gaj (UP)</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/biswa-to-sqft-up/">Biswa to Sq Ft (UP)</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/bigha-to-sqft-bihar/">Bigha to Sq Ft (Bihar)</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/katha-to-sqft-bihar/">Katha to Sq Ft (Bihar)</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/dhur-to-sqft-bihar/">Dhur to Sq Ft (Bihar)</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/marla-to-sqft-punjab/">Marla to Sq Ft (Punjab)</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/kanal-to-marla/">Kanal to Marla</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/guntha-to-sqft/">Guntha to Sq Ft</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/bigha-to-acre/">Bigha to Acre</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/gaj-to-sqft/">Gaj to Sq Ft</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/gaj-plot-size/">Gaj Plot Size (L × W)</a></li>
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-white ring-1 ring-stone-200 p-5">
+          <h3 class="font-bold text-stone-900">हिंदी में कैलकुलेटर</h3>
+          <ul class="mt-3 flex flex-wrap gap-2">
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/hi/biswa-to-sqft-up/">1 बिस्वा में कितने फुट (UP)</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/hi/gaj-to-sqft/">गज से स्क्वायर फीट</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/hi/bigha-to-sqft/">बीघा से स्क्वायर फीट</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/hi/kanal-to-marla/">एक कनाल में कितने मरले</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/hi/katha-to-sqft-bihar/">बिहार में 1 कट्ठा</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/hi/dhur-to-sqft-bihar/">बिहार में 1 धुर</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/hi/marla-to-sqft/">1 मरला में कितने फीट</a></li>
+            <li><a class="inline-block rounded-full bg-stone-100 hover:bg-green-50 hover:text-green-800 ring-1 ring-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700" href="/hi/gaj-plot-size/">100 गज प्लॉट कितने बाई कितने</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SEO CONTENT + FAQ ===== -->
+    <div class="max-w-3xl mx-auto px-4 pt-14 pb-16">
+      <article class="bg-white rounded-2xl ring-1 ring-stone-200 p-6 sm:p-8 prose-stone">
+      <h2 class="text-xl sm:text-2xl font-extrabold text-stone-900">Indian Land Area Conversion Rules Kya Hain?</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-stone-600">
         India mein zameen napne ka koi single national system nahi chalta. Sarkari kaagzaat mein Square Feet, Square Yard (Gaj), Acre aur Hectare jaise standard units chalte hain, lekin gaon aur purane records mein aaj bhi <strong>Bigha, Biswa, Katha, Dhur, Marla, Kanal aur Guntha</strong> jaise regional units use hote hain. Sabse badi baat — in regional units ki value har state mein alag hoti hai. Isliye sahi conversion ke liye pehle apna state chunna zaroori hai.
       </p>
-      <p class="mt-3 text-[15px] leading-relaxed text-slate-600">
+      <p class="mt-3 text-[15px] leading-relaxed text-stone-600">
         Yeh tool sabhi conversions ek base unit (Square Feet) ke through karta hai, taaki har unit ka aapas mein hisaab accurate rahe. Neeche kuch popular states ke rules diye gaye hain.
       </p>
 
-      <h3 class="text-lg font-bold text-slate-900 mt-7">Uttar Pradesh (UP) mein Bigha aur Biswa ka Hisab</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">
+      <h3 class="text-lg font-bold text-stone-900 mt-7">Uttar Pradesh (UP) mein Bigha aur Biswa ka Hisab</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-stone-600">
         UP mein Bigha do tarah ka hota hai — <strong>Pucca</strong> aur <strong>Kaccha</strong>. Aam taur par:
       </p>
-      <ul class="mt-2 space-y-1.5 text-[15px] text-slate-600 list-disc pl-5">
+      <ul class="mt-2 space-y-1.5 text-[15px] text-stone-600 list-disc pl-5">
         <li>1 Bigha (Pucca) = lagbhag <strong>27,225 sq ft</strong> = 3,025 Gaj</li>
         <li>1 Bigha (Kaccha) = lagbhag <strong>9,075 sq ft</strong> (Pucca ka kareeb ek-tihai)</li>
         <li>1 Bigha = 20 Biswa, yaani 1 Biswa (Pucca) = lagbhag 1,361 sq ft</li>
       </ul>
 
-      <h3 class="text-lg font-bold text-slate-900 mt-7">Bihar mein Bigha, Katha aur Dhur ki Value</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">
+      <h3 class="text-lg font-bold text-stone-900 mt-7">Bihar mein Bigha, Katha aur Dhur ki Value</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-stone-600">
         Bihar mein zameen Bigha, Katha aur Dhur mein naapi jaati hai. Standard reference:
       </p>
-      <ul class="mt-2 space-y-1.5 text-[15px] text-slate-600 list-disc pl-5">
+      <ul class="mt-2 space-y-1.5 text-[15px] text-stone-600 list-disc pl-5">
         <li>1 Bigha = 20 Katha = lagbhag <strong>27,225 sq ft</strong></li>
         <li>1 Katha = 20 Dhur = lagbhag <strong>1,361 sq ft</strong></li>
         <li>1 Dhur = lagbhag <strong>68 sq ft</strong></li>
       </ul>
 
-      <h3 class="text-lg font-bold text-slate-900 mt-7">Punjab aur Haryana mein Marla aur Kanal kaise nikalte hain?</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-slate-600">
+      <h3 class="text-lg font-bold text-stone-900 mt-7">Punjab aur Haryana mein Marla aur Kanal kaise nikalte hain?</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-stone-600">
         Punjab aur Haryana mein Marla aur Kanal sabse common units hain, aur inka system kaafi standard hai:
       </p>
-      <ul class="mt-2 space-y-1.5 text-[15px] text-slate-600 list-disc pl-5">
+      <ul class="mt-2 space-y-1.5 text-[15px] text-stone-600 list-disc pl-5">
         <li>1 Marla = <strong>272.25 sq ft</strong></li>
         <li>1 Kanal = 20 Marla = <strong>5,445 sq ft</strong></li>
         <li>8 Kanal = 1 Acre (43,560 sq ft)</li>
       </ul>
 
       <!-- ===== FAQ ACCORDION ===== -->
-      <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-10">Frequently Asked Questions</h2>
-      <div id="faqList" class="mt-4 divide-y divide-slate-200 border-t border-slate-200">
+      <h2 class="text-xl sm:text-2xl font-extrabold text-stone-900 mt-10">Frequently Asked Questions</h2>
+      <div id="faqList" class="mt-4 divide-y divide-stone-200 border-t border-stone-200">
 
         <div class="faq-item">
           <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
-            <span class="text-[15px] font-semibold text-slate-800">Kya har state mein Bigha ki value same hoti hai?</span>
-            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+            <span class="text-[15px] font-semibold text-stone-800">Kya har state mein Bigha ki value same hoti hai?</span>
+            <span class="faq-icon text-green-700 text-2xl font-light shrink-0">+</span>
           </button>
-          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">Nahi. Bigha standardized nahi hai. UP ka Pucca Bigha ~27,225 sq ft hota hai, jabki West Bengal ka Bigha ~14,400 sq ft. Ek hi state ke alag districts mein bhi value badal sakti hai, isliye local tehsil se confirm karein.</p></div>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-stone-600">Nahi. Bigha standardized nahi hai. UP ka Pucca Bigha ~27,225 sq ft hota hai, jabki West Bengal ka Bigha ~14,400 sq ft. Ek hi state ke alag districts mein bhi value badal sakti hai, isliye local tehsil se confirm karein.</p></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
-            <span class="text-[15px] font-semibold text-slate-800">1 Bigha mein kitne Gaj hote hain?</span>
-            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+            <span class="text-[15px] font-semibold text-stone-800">1 Bigha mein kitne Gaj hote hain?</span>
+            <span class="faq-icon text-green-700 text-2xl font-light shrink-0">+</span>
           </button>
-          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">State par depend karta hai. UP Pucca Bigha = ~3,025 Gaj, Bihar Bigha = ~3,025 Gaj, jabki West Bengal Bigha = ~1,600 Gaj. Sahi value ke liye upar tool mein apna state chunein.</p></div>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-stone-600">State par depend karta hai. UP Pucca Bigha = ~3,025 Gaj, Bihar Bigha = ~3,025 Gaj, jabki West Bengal Bigha = ~1,600 Gaj. Sahi value ke liye upar tool mein apna state chunein.</p></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
-            <span class="text-[15px] font-semibold text-slate-800">Pucca aur Kaccha Bigha mein kya farak hai?</span>
-            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+            <span class="text-[15px] font-semibold text-stone-800">Pucca aur Kaccha Bigha mein kya farak hai?</span>
+            <span class="faq-icon text-green-700 text-2xl font-light shrink-0">+</span>
           </button>
-          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">UP aur kuch northern areas mein Pucca Bigha bada hota hai (~27,225 sq ft) aur Kaccha Bigha uska kareeb ek-tihai (~9,075 sq ft). Purane land records mein dono alag use hote hain.</p></div>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-stone-600">UP aur kuch northern areas mein Pucca Bigha bada hota hai (~27,225 sq ft) aur Kaccha Bigha uska kareeb ek-tihai (~9,075 sq ft). Purane land records mein dono alag use hote hain.</p></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
-            <span class="text-[15px] font-semibold text-slate-800">1 Acre mein kitne Bigha hote hain?</span>
-            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+            <span class="text-[15px] font-semibold text-stone-800">1 Acre mein kitne Bigha hote hain?</span>
+            <span class="faq-icon text-green-700 text-2xl font-light shrink-0">+</span>
           </button>
-          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">1 Acre = 43,560 sq ft. UP Pucca Bigha hisab se ~1.6 Bigha, aur West Bengal mein ~3.02 Bigha bante hain.</p></div>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-stone-600">1 Acre = 43,560 sq ft. UP Pucca Bigha hisab se ~1.6 Bigha, aur West Bengal mein ~3.02 Bigha bante hain.</p></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
-            <span class="text-[15px] font-semibold text-slate-800">Maharashtra mein Guntha kya hota hai?</span>
-            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+            <span class="text-[15px] font-semibold text-stone-800">Maharashtra mein Guntha kya hota hai?</span>
+            <span class="faq-icon text-green-700 text-2xl font-light shrink-0">+</span>
           </button>
-          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">Maharashtra aur Gujarat mein 1 Guntha = 1,089 sq ft hota hai. 40 Guntha milkar 1 Acre (43,560 sq ft) banta hai.</p></div>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-stone-600">Maharashtra aur Gujarat mein 1 Guntha = 1,089 sq ft hota hai. 40 Guntha milkar 1 Acre (43,560 sq ft) banta hai.</p></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q w-full flex items-center justify-between text-left py-4 gap-4" aria-expanded="false">
-            <span class="text-[15px] font-semibold text-slate-800">Punjab aur Haryana mein Marla aur Kanal kya hote hain?</span>
-            <span class="faq-icon text-indigo-600 text-2xl font-light shrink-0">+</span>
+            <span class="text-[15px] font-semibold text-stone-800">Punjab aur Haryana mein Marla aur Kanal kya hote hain?</span>
+            <span class="faq-icon text-green-700 text-2xl font-light shrink-0">+</span>
           </button>
-          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-slate-600">Punjab aur Haryana mein 1 Marla = 272.25 sq ft aur 1 Kanal = 20 Marla = 5,445 sq ft hota hai. 8 Kanal milkar 1 Acre banta hai.</p></div>
+          <div class="faq-answer"><p class="pb-4 text-[15px] leading-relaxed text-stone-600">Punjab aur Haryana mein 1 Marla = 272.25 sq ft aur 1 Kanal = 20 Marla = 5,445 sq ft hota hai. 8 Kanal milkar 1 Acre banta hai.</p></div>
         </div>
 
       </div>
     </article>
-
-    <!-- ===== POPULAR CONVERTERS (Internal Links) ===== -->
-    <section class="mt-10">
-      <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Popular Land Unit Converters</h2>
-      <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/bigha-to-gaj-up/">Bigha to Gaj (UP)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/biswa-to-sqft-up/">Biswa to Sq Ft (UP)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/bigha-to-sqft-bihar/">Bigha to Sq Ft (Bihar)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/katha-to-sqft-bihar/">Katha to Sq Ft (Bihar)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/dhur-to-sqft-bihar/">Dhur to Sq Ft (Bihar)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/marla-to-sqft-punjab/">Marla to Sq Ft (Punjab)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/kanal-to-marla/">Kanal to Marla</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/guntha-to-sqft/">Guntha to Sq Ft</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/bigha-to-acre/">Bigha to Acre</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/gaj-to-sqft/">Gaj to Sq Ft</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/gaj-plot-size/">Gaj Plot Size (Length × Width)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/ghar-banane-ka-kharcha/">Ghar Banane Ka Kharcha Calculator</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/loan-emi-calculator/">Plot / Zameen Loan EMI Calculator</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/stamp-duty-calculator/">Stamp Duty &amp; Registry Calculator (UP/Bihar)</a></li>
-      </ul>
-    </section>
-
-    <section class="mt-10">
-      <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">हिंदी में कैलकुलेटर</h2>
-      <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/registry-kharcha-process/">रजिस्ट्री का ख़र्चा और प्रोसेस (UP)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/circle-rate-up/">सर्किल रेट कैसे देखें (UP)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/bihar-jamabandi-kaise-dekhe/">बिहार जमाबंदी कैसे देखें</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/paimaish-online-up/">ज़मीन की पैमाइश कैसे कराएँ (UP)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/varasat-online-up/">वरासत ऑनलाइन आवेदन (UP)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/dakhil-kharij-status/">दाखिल-ख़ारिज स्टेटस (UP, बिहार)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/bhu-naksha-up/">भू-नक्शा कैसे देखें (UP)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/registry-kharcha-calculator/">रजिस्ट्री ख़र्चा कैलकुलेटर (बीघा/गज से कुल ख़र्चा)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/zameen-batwara-calculator/">ज़मीन बँटवारा कैलकुलेटर (भाइयों/वारिसों में)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/khatauni-kaise-dekhe/">खतौनी कैसे देखें (UP भूलेख गाइड)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/zameen-napo/">ज़मीन नापो — लंबाई-चौड़ाई से बीघा</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/hi/biswa-to-sqft-up/">1 बिस्वा में कितने फुट (UP)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/hi/gaj-to-sqft/">गज से स्क्वायर फीट</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/hi/bigha-to-sqft/">बीघा से स्क्वायर फीट (UP, बिहार)</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/hi/kanal-to-marla/">एक कनाल में कितने मरले</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/hi/katha-to-sqft-bihar/">बिहार में 1 कट्ठा कितना होता है</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/hi/dhur-to-sqft-bihar/">बिहार में 1 धुर कितना होता है</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/hi/marla-to-sqft/">1 मरला में कितने स्क्वायर फीट</a></li>
-        <li><a class="text-indigo-700 hover:underline font-medium" href="/hi/gaj-plot-size/">100 गज प्लॉट कितने बाई कितने</a></li>
-      </ul>
-    </section>
-
-    <footer class="mt-8 text-center text-xs text-slate-600">
-      <p>Yeh ek free reference tool hai. Values standard regional conversions par based hain. Legal/registry purpose ke liye official land records dekhein.</p>
-      <p class="mt-3"><a class="hover:underline" href="/about/">About</a> · <a class="hover:underline" href="/contact/">Contact</a> · <a class="hover:underline" href="/privacy-policy/">Privacy Policy</a></p>
-      <p class="mt-2">Last updated: 25 Sep 2026 · &copy; Zameen Naplo</p>
-    </footer>
+    </div>
   </main>
+
+  <!-- ===== SITE FOOTER ===== -->
+  <footer class="bg-green-950 text-green-100/90">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+      <div>
+        <p class="text-lg font-extrabold text-white">Zameen Naplo</p>
+        <p class="mt-2 text-green-100/70">ज़मीन नापने, बदलने और सरकारी काम समझने का मुफ़्त टूल। वैल्यू मानक क्षेत्रीय पैमानों पर आधारित हैं — क़ानूनी/रजिस्ट्री काम के लिए आधिकारिक भू-अभिलेख देखें।</p>
+      </div>
+      <div>
+        <p class="font-bold text-white">कैलकुलेटर</p>
+        <ul class="mt-3 space-y-2">
+          <li><a class="hover:text-amber-300" href="/zameen-napo/">ज़मीन नापो</a></li>
+          <li><a class="hover:text-amber-300" href="/registry-kharcha-calculator/">रजिस्ट्री ख़र्चा कैलकुलेटर</a></li>
+          <li><a class="hover:text-amber-300" href="/zameen-batwara-calculator/">ज़मीन बँटवारा</a></li>
+          <li><a class="hover:text-amber-300" href="/stamp-duty-calculator/">Stamp Duty Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-bold text-white">गाइड</p>
+        <ul class="mt-3 space-y-2">
+          <li><a class="hover:text-amber-300" href="/khatauni-kaise-dekhe/">खतौनी कैसे देखें</a></li>
+          <li><a class="hover:text-amber-300" href="/bhu-naksha-up/">भू-नक्शा UP</a></li>
+          <li><a class="hover:text-amber-300" href="/dakhil-kharij-status/">दाखिल-ख़ारिज स्टेटस</a></li>
+          <li><a class="hover:text-amber-300" href="/varasat-online-up/">वरासत ऑनलाइन</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-bold text-white">Zameen Naplo</p>
+        <ul class="mt-3 space-y-2">
+          <li><a class="hover:text-amber-300" href="/about/">About</a></li>
+          <li><a class="hover:text-amber-300" href="/contact/">Contact</a></li>
+          <li><a class="hover:text-amber-300" href="/privacy-policy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10"><p class="max-w-6xl mx-auto px-4 py-4 text-xs text-green-100/60">Last updated: 18 Nov 2026 · &copy; Zameen Naplo</p></div>
+  </footer>
 
   <!-- ===== CONVERSION ENGINE (Vanilla JS) ===== -->
   <script>

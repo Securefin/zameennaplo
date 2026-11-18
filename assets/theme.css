@@ -1,0 +1,55 @@
+/* Zameen Naplo — common theme for inner pages (loaded after each page's inline style) */
+:root{--g9:#14532d;--g8:#166534;--g7:#15803d;--g2:#bbf7d0;--g0:#f0fdf4;--a4:#fbbf24;--a2:#fde68a;--a1:#fef3c7;--a0:#fffbeb;--ink:#1c1917;--line:#e7e5e4;--bg:#faf7f0}
+body{background:var(--bg);color:#292524}
+a{color:var(--g8)}
+main a{text-underline-offset:2px}
+:focus-visible{outline-color:var(--g7)}
+
+/* header */
+header.site{background:#fff;color:var(--ink);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+header.site .wrap{max-width:64rem;padding:10px 16px;gap:12px}
+header.site a{text-decoration:none}
+header.site .brand{display:flex;align-items:center;gap:10px;color:var(--g9);font-size:1.08rem;font-weight:800;line-height:1.15}
+header.site .brand svg{width:34px;height:34px;flex:none}
+header.site .brand small{display:block;font-size:.68rem;font-weight:600;color:#b45309}
+header.site nav.mainnav{display:none;gap:24px;font-weight:600;font-size:.95rem}
+header.site nav.mainnav a{color:#44403c}
+header.site nav.mainnav a:hover{color:var(--g8)}
+@media(min-width:760px){header.site nav.mainnav{display:flex}}
+header.site .home-link{background:var(--a4);color:#052e16;text-decoration:none;font-weight:700;font-size:.85rem;padding:7px 14px;border-radius:999px;white-space:nowrap}
+header.site .home-link:hover{background:#fcd34d}
+
+/* content */
+.container{max-width:44rem}
+main h1{color:var(--g9);letter-spacing:-.01em}
+main h2{color:var(--ink)}
+main .crumbs a{color:var(--g8)}
+main .quick{background:var(--a0);border:1px solid var(--a2);border-left:4px solid var(--a4)}
+main .quick .label{color:#92400e}
+main .card{border-color:var(--line);border-radius:18px;box-shadow:0 14px 32px -18px rgba(20,83,45,.30)}
+main select,main input[type=number],main input[type=text]{border-color:#d6d3d1;border-radius:12px}
+main select:focus,main input:focus{outline:none;border-color:var(--g7);box-shadow:0 0 0 3px var(--g2)}
+main .swap{color:var(--g8)}
+main .result{background:var(--g0);border-color:var(--g2)}
+main .result .rmain,main .big,main .sh .bb{color:var(--g9)}
+main .btn{background:#128c4a}
+main ol.steps>li::before{background:var(--g8)}
+main .lbl{background:var(--a1);border-color:var(--a2);color:#78350f}
+main .tab{border-color:var(--g2);background:var(--g0);color:var(--g9)}
+main .tab.on{background:var(--g8);border-color:var(--g8);color:#fff}
+main .btn2{background:var(--g8)}
+main .bill .tot{background:var(--g8)}
+main .add{background:var(--g0);border-color:var(--g7);color:var(--g9)}
+main .chip{background:var(--g0);border-color:var(--g2);color:var(--g9)}
+main .bar .fill{background:var(--g8)}
+main input[type=range]{accent-color:var(--g8)}
+main thead{background:#f5f5f4}
+main details{border-color:var(--line)}
+main summary{color:var(--ink)}
+
+/* footer */
+footer.site{background:#052e16;border-top:none;margin-top:48px}
+footer.site .wrap{max-width:64rem;color:rgba(220,252,231,.72);text-align:left;padding:28px 16px}
+footer.site a,footer.site nav a{color:#fde68a}
+footer.site strong{color:#fff}
+footer.site .legal{color:rgba(220,252,231,.6)}
